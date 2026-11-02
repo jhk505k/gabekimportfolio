@@ -1,0 +1,192 @@
+{
+  "theme": "Dark-Dominant Kinetic Obsidian & Electric Amber Accent",
+  "style_archetype": "The Anti-AI Swiss-Cyber Editorial (Brutalist Precision + Kinetic Micro-Animations)",
+  "emotional_tone": "Authoritative, High-Performance, Technical Craftsmanship, Senior Enterprise Leader",
+  "typography": {
+    "heading_font": "Outfit / Syne / Cabinet Grotesk (Display Sans with raw geometry)",
+    "body_font": "JetBrains Mono / IBM Plex Sans (Technical legibility & crisp code aesthetics)",
+    "font_pairings": {
+      "H1_Hero": "font-extrabold tracking-tighter text-4xl sm:text-5xl lg:text-6xl text-slate-100",
+      "H2_Section": "font-bold tracking-tight text-2xl sm:text-3xl lg:text-4xl text-slate-100 uppercase",
+      "H3_Card": "font-semibold tracking-normal text-lg sm:text-xl text-slate-200",
+      "Body_Text": "font-normal leading-relaxed text-sm sm:text-base text-slate-400",
+      "Code_Mono": "font-mono text-xs sm:text-sm text-amber-400"
+    },
+    "forbidden_fonts": ["Inter", "Roboto", "Open Sans", "Space Grotesk for main headers"]
+  },
+  "colors": {
+    "background_primary": "#090A0F",
+    "background_secondary": "#11131A",
+    "background_card": "#161924",
+    "border_subtle": "rgba(255, 255, 255, 0.08)",
+    "border_highlight": "rgba(255, 94, 26, 0.4)",
+    "accent_primary": "#FF5E1A",
+    "accent_secondary": "#00F0FF",
+    "text_primary": "#F8FAFC",
+    "text_secondary": "#94A3B8",
+    "text_muted": "#64748B",
+    "forbidden_colors": ["#7351B7", "#1B93A4", "pure flat #000000 gradients"]
+  },
+  "layout_and_grids": {
+    "hero": {
+      "type": "Kinetic Masked Reveal + 3D/Interactive Canvas Mesh + Editorial Ribbon",
+      "headline": "GABE KIM / SENIOR FULL STACK JAVA DEVELOPER",
+      "subheadline": "8+ Years Architecting High-Concurrency Enterprise Systems Across Telecom, Banking, Healthcare, IoT & AI",
+      "cta": ["Download Resume", "Explore 13 Enterprise Projects", "Get In Touch"]
+    },
+    "grid_strategy": {
+      "bento_mode": "MODE A: Tetris Grid for Projects & Architecture Highlights",
+      "gap": "gap-6 lg:gap-8",
+      "container_padding": "px-4 sm:px-8 lg:px-16 py-12 lg:py-24"
+    },
+    "nav_bar": {
+      "type": "Fixed Crystal Glass Header with SVG Initial Logo Mark (GK)",
+      "classes": "backdrop-blur-xl bg-[#090A0F]/80 border-b border-white/10 z-50",
+      "links": ["About", "Skills", "Experience", "Projects (13)", "Education", "Contact"],
+      "action": "Resume Download & Contact Button"
+    }
+  },
+  "image_urls": {
+    "hero_tech_bg": "https://images.pexels.com/photos/37730212/pexels-photo-37730212.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "projects": [
+      {
+        "id": "hiddentag",
+        "title": "HiddenTag Global Authentication Platform",
+        "company": "CK&B",
+        "category": "Blockchain & Security",
+        "url": "https://images.unsplash.com/photo-1639322537228-f710d846310a?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "description": "Global anti-counterfeiting verification platform handling millions of cryptographic scan requests daily."
+      },
+      {
+        "id": "gspostbox",
+        "title": "Next Generation GS Postbox Kiosk Platform",
+        "company": "Compax Digital",
+        "category": "Logistics & Enterprise Cloud",
+        "url": "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "description": "Nationwide logistics kiosk & backend platform integration for South Korea's largest convenience store chain."
+      },
+      {
+        "id": "lguplus",
+        "title": "LG U+ Digital Catalog System",
+        "company": "LG CNS",
+        "category": "Telecom Systems",
+        "url": "https://images.pexels.com/photos/37730211/pexels-photo-37730211.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "High-concurrency telecommunication digital sales & catalog system for enterprise reps."
+      },
+      {
+        "id": "shinhanbank",
+        "title": "Shinhan Bank 'The Next' Core Platform",
+        "company": "LG CNS",
+        "category": "Core Banking & Fintech",
+        "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "description": "Next-generation core financial transaction engine with zero-downtime Java backend architecture."
+      },
+      {
+        "id": "korean-social-security",
+        "title": "Korean Social Security Information System",
+        "company": "LG CNS",
+        "category": "Public Sector & Healthcare Data",
+        "url": "https://images.unsplash.com/photo-1686061593213-98dad7c599b9?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "description": "Massive government healthcare & social welfare data integration handling nationwide welfare processing."
+      },
+      {
+        "id": "middleblock",
+        "title": "Middleblock Enterprise Blockchain Platform",
+        "company": "BFLabs",
+        "category": "Blockchain & Distributed Ledger",
+        "url": "https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "description": "Custom Hyperledger/Ethereum middleware bridging legacy enterprise ERPs to immutable distributed ledgers."
+      },
+      {
+        "id": "yeosu-flagship",
+        "title": "Yeosu Smart Maritime Big Data Platform",
+        "company": "SIOT InfoTech",
+        "category": "Smart City & Maritime IoT",
+        "url": "https://images.unsplash.com/photo-1760553120324-d3d2bf53852b?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "description": "3D spatial digital twin & ocean telemetry aggregator processing port sensor streams."
+      },
+      {
+        "id": "sensor-gateway",
+        "title": "Low-Latency Sensor Gateway Engine",
+        "company": "BFLabs",
+        "category": "IoT Gateway & Edge Compute",
+        "url": "https://images.unsplash.com/photo-1585014165903-6d6c6ebad3e9?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "description": "High-frequency MQTT/TCP gateway processing 50k+ messages/sec with C++ Native interface & Spring Boot."
+      },
+      {
+        "id": "goseong-sacheon",
+        "title": "Goseong & Sacheon Municipal IoT Dashboard",
+        "company": "SIOT InfoTech",
+        "category": "Smart City Telemetry",
+        "url": "https://images.unsplash.com/photo-1792328458349-f7dc2d114c82?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "description": "Real-time environmental risk & infrastructure surveillance dashboard for city administration."
+      },
+      {
+        "id": "m-stt",
+        "title": "M-STT Enterprise Speech-to-Text Pipeline",
+        "company": "MasonIntelligence",
+        "category": "Voice AI & Audio Streaming",
+        "url": "https://images.pexels.com/photos/17483874/pexels-photo-17483874.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Distributed audio streaming & acoustic model inference platform for enterprise call analysis."
+      },
+      {
+        "id": "micube-ai",
+        "title": "MICUBE AI Visual Analytics Suite",
+        "company": "MICUBE Solution",
+        "category": "AI Analytics & Charting",
+        "url": "https://images.unsplash.com/photo-1674027444485-cec3da58eef4?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "description": "Manufacturing analytics visual builder for real-time yield prediction & process control."
+      },
+      {
+        "id": "daeduk-pd",
+        "title": "Daeduk Industrial Predictive Maintenance Engine",
+        "company": "MICUBE Solution",
+        "category": "Smart Factory & Machine Learning",
+        "url": "https://images.pexels.com/photos/14314636/pexels-photo-14314636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Vibration & thermal sensor anomaly detection algorithm engine predicting motor failure 72h prior."
+      },
+      {
+        "id": "hyundai-cv",
+        "title": "Hyundai Computer Vision Rock Detection System",
+        "company": "MICUBE Solution",
+        "category": "Automotive & Computer Vision",
+        "url": "https://images.unsplash.com/photo-1793242217439-20a53fbe62b8?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "description": "Edge AI image segmentation platform identifying debris & obstacle hazards in heavy industrial zones."
+      }
+    ]
+  },
+  "components_and_features": {
+    "resume_download": {
+      "button_text": "Download Resume (PDF)",
+      "file_path": "/gabe_kim_resume.pdf",
+      "interactive_toast": "Resume PDF download triggered successfully!"
+    },
+    "contact_form": {
+      "fields": ["Name", "Email Address", "Project / Inquiry Detail"],
+      "social_links": {
+        "linkedin": "https://www.linkedin.com/in/ji-kim-5179495",
+        "github": "https://https://github.com/jhk505k",
+        "email": "jhk505k@gmail.com"
+      },
+      "validation": "Instant feedback + Sonner notification toast on submit"
+    },
+    "project_spotlight_modal": "Detailed modal view when clicking on any of the 13 projects with tech stack breakdown, role summary, architecture diagrams or highlights, and code snippets",
+    "experience_timeline": "7 Roles from 2018 to 2024 with detailed bullet points from resume (Compax Digital, CK&B, LG CNS, BFLabs, SIOT InfoTech, MasonIntelligence, MICUBE Solution)",
+    "skills_matrix": "Categorized skill badges with mastery level indicator (Java/Spring Boot, Python/FastAPI, React/Tailwind, PostgreSQL/Oracle/Redis, AWS/Docker/K8s, Kafka/MQTT, C/C++)",
+    "education_and_certifications": "Georgia Tech MS in Computer Science + BS in Computer Engineering, Cisco Certified Network Professional (CCNP)"
+  },
+  "motion_and_interactions": {
+    "lenis_scroll": "Smooth momentum scrolling enabled globally",
+    "stagger_reveals": "Framer Motion initial animation staggering line-by-line",
+    "marquee_ticker": "Slow editorial text ticker displaying core technologies (Java 17 • Spring Boot • Microservices • AWS • React • Distributed Systems • Python • Kafka • Docker • Kubernetes)",
+    "hover_effects": "Spotlight image frame zoom, glowing kinetic border trace, scale-up badges"
+  },
+  "data_testid_policy": "Mandatory data-testid on every button, link, input, tab, project card, and section container for testing agent verification",
+  "instructions_to_main_agent": [
+    "Build a single-page React portfolio application for Gabe Kim (Ji Kim), Senior Full Stack Java Developer with 8+ years experience.",
+    "Include all 13 resume projects with their exact titles, company names, domain descriptions, tech tags, and corresponding provided image URLs.",
+    "Implement Lenis smooth scroll and Framer Motion hero line reveals.",
+    "Add functional Resume Download button, interactive Contact Form with Sonner toasts, and working social links (LinkedIn: www.linkedin.com/in/ji-kim-5179495, GitHub: https://github.com/jhk505k).",
+    "Ensure dark obsidian aesthetic with accent colors, crisp typography, and 100% test coverage with data-testid attributes."
+  ]
+}
