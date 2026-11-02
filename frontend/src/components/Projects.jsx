@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Reveal, SectionHeading } from "./Reveal";
 import { PROJECTS } from "../data/portfolio";
-import { X, Building2, Tag } from "lucide-react";
+import { X, Building2, Tag, ArrowRight } from "lucide-react";
 
 const ProjectModal = ({ project, onClose }) => (
   <motion.div
@@ -61,6 +62,15 @@ const ProjectModal = ({ project, onClose }) => (
             ))}
           </div>
         </div>
+        <Link
+          to={`/projects/${project.id}`}
+          onClick={onClose}
+          data-testid="project-modal-case-study-link"
+          className="group mt-8 flex items-center justify-center gap-2 w-full bg-[#FF5E1A] text-[#090A0F] font-display font-bold text-sm px-6 py-3.5 rounded-full hover:bg-[#00F0FF] transition-colors"
+        >
+          Read Full Case Study
+          <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+        </Link>
       </div>
     </motion.div>
   </motion.div>
@@ -118,6 +128,9 @@ export const Projects = () => {
                       </span>
                     )}
                   </div>
+                  <p className="mt-4 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-slate-500 group-hover:text-[#00F0FF] transition-colors">
+                    Case Study <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+                  </p>
                 </div>
               </button>
             </Reveal>

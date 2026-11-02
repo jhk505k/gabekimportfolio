@@ -28,14 +28,16 @@
 ## User Choices
 - Style: Bold and striking. Links: LinkedIn (linkedin.com/in/ji-kim-5179495), GitHub (github.com/jhk505k). Contact form: yes. Project images: placeholders for now (user will supply real pictures later).
 
+## Implemented (2026-11-02, iteration 2)
+- Certifications corrected & expanded: CCNP marked Expired (2015–2018); added 3 Microsoft certs from user's uploaded transcript (Programming in C# ACTIVE May 2015 ID 701ACF-A13055; MCSE Private Cloud Inactive Apr 2013 ID 35KEB5-7386CA; MCSA Windows Server 2012 Inactive Mar 2013 ID D60814-988F4Q); added CompTIA Security+ (Sep 2015 – Sep 2018, ID COMP001020382835, Expired). Status badges (Active/Inactive/Expired) in UI; resume PDF regenerated with same data.
+- Email alerts: contact form now sends a notification email to jhk505k@gmail.com via Emergent-managed Resend (EMERGENT_EMAIL_KEY in backend/.env, from_name "Gabe Kim Portfolio", reply-to = sender). Verified 202 Accepted on real send.
+- Project case studies: /projects/:id pages for all 13 projects with Challenge / Approach / Outcome sections, tech stack, prev/next navigation; modal links through to case study page.
+
 ## Backlog
 - P0: Replace 13 placeholder project images with user's real project pictures.
-- P1: Email notification to Gabe on new contact form message (Resend integration).
 - P1: SEO meta/OG/JSON-LD + sitemap (farm-seo-setup skill).
 - P2: Admin page to view contact messages in-browser (GET /api/contact exists).
-- P2: Blog / case-study deep dives per project.
 
 ## Next Tasks
 1. Collect project images from user → swap into src/data/portfolio.js.
-2. Wire contact form to email delivery.
-3. SEO setup before going live.
+2. SEO setup before going live.

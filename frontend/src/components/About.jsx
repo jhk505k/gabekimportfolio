@@ -24,7 +24,7 @@ export const About = () => (
           </div>
           <div className="flex items-center gap-3 text-sm text-slate-300">
             <ShieldCheck size={16} className="text-[#00F0FF] shrink-0" />
-            <span>CCNP Certified — deep networking & infrastructure background</span>
+            <span>Cisco, Microsoft & CompTIA certified — networking, cloud & security background</span>
           </div>
           <div className="flex items-center gap-3 text-sm text-slate-300">
             <Languages size={16} className="text-[#00F0FF] shrink-0" />

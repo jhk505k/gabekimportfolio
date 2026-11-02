@@ -91,7 +91,21 @@ text("Focus: Telecommunication and Computer Systems / Software", 9, "Helvetica",
 text("B.S. Electrical Engineering — Georgia Institute of Technology, Atlanta, GA", 9.5, "Helvetica-Bold", DARK, 16)
 
 text("CERTIFICATIONS", 11, "Helvetica-Bold", ACCENT, 15)
-text("Cisco Certified Network Professional (CCNP) — 2015", 9, "Helvetica", GREY, 12)
+certs_raw = grab("CERTIFICATIONS")
+for chunk in re.findall(r"\{(.*?)\}", certs_raw, re.S):
+    def cf(f, chunk=chunk):
+        m = re.search(rf'{f}: "(.*?)"', chunk)
+        return m.group(1) if m else ""
+    detail = [cf("issuer")]
+    if cf("id"):
+        detail.append("ID " + cf("id"))
+    if cf("earned"):
+        detail.append("earned " + cf("earned"))
+    if cf("expires"):
+        detail.append("expired " + cf("expires"))
+    elif cf("status") and cf("status") != "Active":
+        detail.append(cf("status").lower())
+    text("• " + cf("name") + " — " + ", ".join(d for d in detail if d), 9, "Helvetica", GREY, 12)
 text("Languages: Fluent in Korean and English", 9, "Helvetica", GREY, 12)
 
 c.save()

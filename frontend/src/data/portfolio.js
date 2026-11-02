@@ -125,6 +125,9 @@ export const PROJECTS = [
     image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?crop=entropy&cs=srgb&fm=jpg&q=85",
     description: "Designed backend architecture for a global authentication, community, review, and marketplace platform. Built RESTful APIs and the database layer, then migrated deployment from Tomcat to Docker-based containers on AWS for the production launch.",
     tech: ["Spring Boot", "Hibernate JPA", "MyBatis", "MySQL", "Docker", "AWS"],
+    challenge: "HiddenTag needed a single global backend serving four distinct product domains — authentication, community, reviews and marketplace — while running on legacy Tomcat infrastructure that made releases slow and risky.",
+    approach: "Designed the backend architecture from scratch with Spring Boot, separating domain services and exposing clean RESTful APIs. Built the data layer with Hibernate JPA and MyBatis over MySQL, then containerized the entire deployment with Docker on AWS to replace the Tomcat servers.",
+    outcome: "The HiddenTag Global platform launched to production on schedule, with a containerized deployment pipeline that made subsequent releases faster and rollback-safe.",
   },
   {
     id: "gspostbox",
@@ -134,6 +137,9 @@ export const PROJECTS = [
     image: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&cs=srgb&fm=jpg&q=85",
     description: "Developed the CI/CD pipeline and automated deployments in a GitOps / ArgoCD Kubernetes system for the next-generation GS Postbox platform.",
     tech: ["GitOps", "ArgoCD", "Kubernetes"],
+    challenge: "The next-generation GS Postbox system needed frequent, reliable releases across environments, but deployments were manual, error-prone and hard to audit.",
+    approach: "Designed a GitOps-based CI/CD pipeline on Kubernetes with ArgoCD, making Git the single source of truth for every environment and automating rollout from commit to cluster.",
+    outcome: "Deployments became fully automated and auditable, with declarative rollbacks and consistent environments across the delivery pipeline.",
   },
   {
     id: "lguplus",
@@ -143,6 +149,9 @@ export const PROJECTS = [
     image: "https://images.pexels.com/photos/37730211/pexels-photo-37730211.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     description: "Built CI/CD pipelines and automated deployments using Jenkins for the LG U+ digital catalog system on the Adobe AEM framework, via custom Maven profiles.",
     tech: ["Jenkins", "Adobe AEM", "Maven"],
+    challenge: "The LG U+ digital catalog ran on Adobe AEM, where releases involved many manual packaging steps that slowed down telecom product updates.",
+    approach: "Built Jenkins-based CI/CD pipelines and engineered custom Maven profiles tailored to the AEM framework, automating build, packaging and deployment for each environment.",
+    outcome: "Catalog releases were automated end to end, cutting deployment effort and letting content and product updates reach production faster.",
   },
   {
     id: "shinhanbank",
@@ -152,6 +161,9 @@ export const PROJECTS = [
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=srgb&fm=jpg&q=85",
     description: "Managed and deployed interface services (MCI / FEP / EAI service mesh) for Shinhan Bank's next-generation internal management system.",
     tech: ["MCI", "FEP", "EAI Service Mesh"],
+    challenge: "Shinhan Bank's next-generation internal system depended on a web of inter-system interfaces (MCI / FEP / EAI) where any misconfiguration could disrupt core banking operations.",
+    approach: "Managed and deployed the interface service mesh across environments, coordinating releases and validating message flows between the bank's internal systems.",
+    outcome: "Interface services were deployed and operated stably throughout the project, keeping mission-critical internal banking systems connected.",
   },
   {
     id: "korean-social-security",
@@ -161,6 +173,9 @@ export const PROJECTS = [
     image: "https://images.unsplash.com/photo-1686061593213-98dad7c599b9?crop=entropy&cs=srgb&fm=jpg&q=85",
     description: "Developed Java Batch services in MyBatis for the next-generation Korean social security information system.",
     tech: ["Java Batch", "MyBatis"],
+    challenge: "The national social security system processes enormous volumes of welfare and eligibility data in scheduled batch windows with zero tolerance for failure.",
+    approach: "Developed Java Batch services with MyBatis, structuring jobs for restartability and precise data mapping against the system's large relational schemas.",
+    outcome: "Batch services were delivered for the next-generation system, processing nationwide social security data reliably within the required windows.",
   },
   {
     id: "middleblock",
@@ -170,6 +185,9 @@ export const PROJECTS = [
     image: "https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=srgb&fm=jpg&q=85",
     description: "Developed an integrated REST API gateway server in Java Spring for the Middleblock blockchain platform (Hyperledger Indy, Aries & Fabric) for easy integration with customer applications.",
     tech: ["Java Spring", "Hyperledger Indy", "Hyperledger Aries", "Hyperledger Fabric"],
+    challenge: "The Middleblock platform (Hyperledger Indy, Aries & Fabric) was powerful but hard for customer applications to integrate with directly, due to complex blockchain APIs.",
+    approach: "Designed and developed an integrated REST API gateway in Java Spring that wrapped the three Hyperledger frameworks behind a single, simple HTTP interface.",
+    outcome: "Customer applications could onboard onto the blockchain platform through familiar REST calls, dramatically reducing integration effort.",
   },
   {
     id: "yeosu-flagship",
@@ -179,6 +197,9 @@ export const PROJECTS = [
     image: "https://images.unsplash.com/photo-1760553120324-d3d2bf53852b?crop=entropy&cs=srgb&fm=jpg&q=85",
     description: "Designed and implemented the big data warehouse infrastructure and monitoring platform, collaborating with the McKinley Rice international engineering team.",
     tech: ["Hadoop", "Spark", "Hive", "Django", "React"],
+    challenge: "The Yeosu Data Flagship project needed to aggregate and analyze city-scale data streams, but there was no warehouse infrastructure or visibility platform to support it.",
+    approach: "Designed and implemented a big data warehouse on Hadoop, Spark and Hive, and built a monitoring platform with a Django backend and React frontend, working with the McKinley Rice international engineering team.",
+    outcome: "The warehouse and monitoring platform were delivered as the flagship infrastructure for Yeosu's smart city data initiative.",
   },
   {
     id: "sensor-gateway",
@@ -188,6 +209,9 @@ export const PROJECTS = [
     image: "https://images.unsplash.com/photo-1585014165903-6d6c6ebad3e9?crop=entropy&cs=srgb&fm=jpg&q=85",
     description: "Migrated the main sensor gateway backend from Go to Java Spring (TCP/IP socket, gRPC, REST API) and implemented Kafka-based data pipelines for reliability and scalability.",
     tech: ["Go", "Java Spring", "gRPC", "TCP/IP", "Kafka"],
+    challenge: "The core sensor gateway was written in Go, which the organization could not maintain or scale, and sensor data pipelines lacked durability guarantees.",
+    approach: "Rewrote the gateway in Java Spring supporting TCP/IP socket, gRPC and REST API ingestion, and implemented Kafka-based pipelines, later upgraded with Apache Nifi and Streamsets for managed data flows.",
+    outcome: "The migrated gateway improved data reliability and scalability while aligning the codebase with the team's Java expertise.",
   },
   {
     id: "goseong-sacheon",
@@ -197,6 +221,9 @@ export const PROJECTS = [
     image: "https://images.unsplash.com/photo-1792328458349-f7dc2d114c82?crop=entropy&cs=srgb&fm=jpg&q=85",
     description: "Developed a tourist sensor IoT dashboard for the Goseong and Sacheon municipalities with real-time telemetry visualization.",
     tech: ["React", "Java Spring", "MariaDB"],
+    challenge: "The Goseong and Sacheon municipalities had deployed tourist sensors but had no way to see or act on the data being collected.",
+    approach: "Developed a full-stack dashboard with a React frontend, Java Spring backend and MariaDB storage, visualizing live tourist sensor telemetry for city administrators.",
+    outcome: "Both municipalities gained a real-time view of tourist flows and sensor health, turning raw IoT data into usable insight.",
   },
   {
     id: "m-stt",
@@ -206,6 +233,9 @@ export const PROJECTS = [
     image: "https://images.pexels.com/photos/17483874/pexels-photo-17483874.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     description: "Modernized the M-STT application with Spring Boot and containerized Deepgram AI applications (M-STT, M-BOT, M-MIC) for on-premises customer deployments with a private Harbor registry.",
     tech: ["Spring Boot", "JSP", "Docker", "Docker Compose", "VMware Harbor"],
+    challenge: "The M-STT speech-to-text product needed modernization, and enterprise customers demanded on-premises AI deployments in restricted environments with no public registry access.",
+    approach: "Modernized the application with Spring Boot and a customized JSP frontend, then containerized the Deepgram AI suite (M-STT, M-BOT, M-MIC) with Docker images and customer-specific Docker Compose configurations, distributed through a private VMware Harbor registry.",
+    outcome: "The AI products became deployable on-premises at customer sites in a repeatable, self-contained way — a key enabler for enterprise sales.",
   },
   {
     id: "micube-ai",
@@ -215,6 +245,9 @@ export const PROJECTS = [
     image: "https://images.unsplash.com/photo-1674027444485-cec3da58eef4?crop=entropy&cs=srgb&fm=jpg&q=85",
     description: "Developed an AI visualization dashboard for a KISA government project with real-time analytics and charting.",
     tech: ["Java Spring", "Angular", "Python"],
+    challenge: "KISA needed a way to make AI model outputs and security analytics understandable to non-technical government stakeholders.",
+    approach: "Developed the AI Visualization Tool dashboard with a Java Spring backend, Angular frontend and Python-based analytics, presenting model results through interactive charts.",
+    outcome: "The dashboard was delivered for the KISA government project, giving stakeholders direct visibility into AI-driven analytics.",
   },
   {
     id: "daeduk-pd",
@@ -224,6 +257,9 @@ export const PROJECTS = [
     image: "https://images.pexels.com/photos/14314636/pexels-photo-14314636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     description: "Built predictive equipment maintenance applications with a TensorFlow RMSE model running on vibration sensor data.",
     tech: ["Angular", "Java Spring", "TensorFlow", "RMSE Model"],
+    challenge: "Daeduk Electronics faced unexpected equipment failures on the factory floor, causing unplanned downtime and costly emergency repairs.",
+    approach: "Built a predictive maintenance application with Angular and Java Spring, training a TensorFlow RMSE model on vibration sensor data to detect failure patterns before breakdowns occurred.",
+    outcome: "The application gave the factory early warning of equipment issues, shifting maintenance from reactive repair to planned intervention.",
   },
   {
     id: "hyundai-cv",
@@ -233,6 +269,9 @@ export const PROJECTS = [
     image: "https://images.unsplash.com/photo-1793242217439-20a53fbe62b8?crop=entropy&cs=srgb&fm=jpg&q=85",
     description: "Developed a computer-vision rock detection application for the Hyundai Chungju Biocenter using a TensorFlow Mask R-CNN model.",
     tech: ["Java Spring", "Angular", "Python", "TensorFlow Mask R-CNN"],
+    challenge: "The Hyundai Chungju Biocenter needed automated detection of rocks and debris in operational zones, where manual inspection was slow and inconsistent.",
+    approach: "Developed a computer-vision application with Java Spring, Angular and Python, training a TensorFlow Mask R-CNN model for pixel-level segmentation of rocks in camera feeds.",
+    outcome: "The system automated rock detection at the biocenter, improving safety and inspection consistency through applied deep learning.",
   },
 ];
 
@@ -252,6 +291,44 @@ export const EDUCATION = [
 ];
 
 export const CERTIFICATIONS = [
-  { name: "Cisco Certified Network Professional (CCNP)", year: "2015" },
-  { name: "Fluent in Korean & English", year: "" },
+  {
+    name: "Microsoft Specialist: Programming in C#",
+    issuer: "Microsoft",
+    id: "701ACF-A13055",
+    earned: "May 2015",
+    expires: "",
+    status: "Active",
+  },
+  {
+    name: "Microsoft Certified Solutions Expert: Private Cloud",
+    issuer: "Microsoft",
+    id: "35KEB5-7386CA",
+    earned: "Apr 2013",
+    expires: "",
+    status: "Inactive",
+  },
+  {
+    name: "MCSA: Windows Server 2012",
+    issuer: "Microsoft",
+    id: "D60814-988F4Q",
+    earned: "Mar 2013",
+    expires: "",
+    status: "Inactive",
+  },
+  {
+    name: "Cisco Certified Network Professional (CCNP)",
+    issuer: "Cisco",
+    id: "",
+    earned: "2015",
+    expires: "2018",
+    status: "Expired",
+  },
+  {
+    name: "CompTIA Security+",
+    issuer: "CompTIA",
+    id: "COMP001020382835",
+    earned: "Sep 2015",
+    expires: "Sep 2018",
+    status: "Expired",
+  },
 ];

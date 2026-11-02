@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "sonner";
 import "@/App.css";
 import { Nav } from "@/components/Nav";
@@ -12,6 +13,24 @@ import { Projects } from "@/components/Projects";
 import { Education } from "@/components/Education";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import ProjectDetail from "@/pages/ProjectDetail";
+
+const Home = () => (
+  <>
+    <Nav />
+    <main>
+      <Hero />
+      <Marquee />
+      <About />
+      <Skills />
+      <Experience />
+      <Projects />
+      <Education />
+      <Contact />
+    </main>
+    <Footer />
+  </>
+);
 
 function App() {
   useEffect(() => {
@@ -40,19 +59,12 @@ function App() {
 
   return (
     <div className="App bg-[#090A0F] min-h-screen">
-      <div className="grain-overlay" />
-      <Nav />
-      <main>
-        <Hero />
-        <Marquee />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Education />
-        <Contact />
-      </main>
-      <Footer />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects/:id" element={<ProjectDetail />} />
+        </Routes>
+      </BrowserRouter>
       <Toaster theme="dark" position="bottom-right" richColors />
     </div>
   );
