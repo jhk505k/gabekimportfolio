@@ -64,7 +64,7 @@ def text(t, size, font, color, gap, indent=0):
 # Header
 text("GABE KIM", 22, "Helvetica-Bold", ACCENT, 28)
 text("Full Stack Java Developer", 12, "Helvetica-Bold", DARK, 16)
-text("Columbus, GA  |  (706) 304-1620  |  jhk505k@gmail.com", 9.5, "Helvetica", GREY, 13)
+text("Columbus, GA  |  (706) 304-1620  |  jhk505ko@gmail.com", 9.5, "Helvetica", GREY, 13)
 text("linkedin.com/in/ji-kim-5179495  |  github.com/jhk505k", 9.5, "Helvetica", GREY, 18)
 
 text("SUMMARY", 11, "Helvetica-Bold", ACCENT, 15)

@@ -33,6 +33,11 @@
 - Email alerts: contact form now sends a notification email to jhk505k@gmail.com via Emergent-managed Resend (EMERGENT_EMAIL_KEY in backend/.env, from_name "Gabe Kim Portfolio", reply-to = sender). Verified 202 Accepted on real send.
 - Project case studies: /projects/:id pages for all 13 projects with Challenge / Approach / Outcome sections, tech stack, prev/next navigation; modal links through to case study page.
 
+## Implemented (2026-11-02, iteration 3)
+- Email changed everywhere to jhk505ko@gmail.com (site display, email alerts owner/reply-to, resume PDF header).
+- Certification proof on click: 3 Microsoft certificate PDFs converted to images (C# Specialist F333-1096; MCSA Windows Server 2012 Charter Member E207-0223; MCSE Private Cloud G091-9233) + Cisco transcript image + CompTIA transcript image served from /certs/. Clicking any certification opens a viewer modal with "Open Full" link.
+- Certifications list expanded to 7: 3 Microsoft + CCNP R&S (CSCO12143672, Jan 2015–Jan 2018, Expired) + CCNA R&S (Feb 2013–Jan 2018, Expired) + CompTIA Security+ ce (Sep 2015–Sep 2018, COMP001020382835) + CompTIA Network+ ce (Mar 2012–Mar 2015). Resume PDF regenerated with full list.
+
 ## Backlog
 - P0: Replace 13 placeholder project images with user's real project pictures.
 - P1: SEO meta/OG/JSON-LD + sitemap (farm-seo-setup skill).
