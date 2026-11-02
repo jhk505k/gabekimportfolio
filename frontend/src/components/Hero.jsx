@@ -145,7 +145,10 @@ export const Hero = () => {
             <div className="relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl">
               <motion.img
                 src={HERO_IMAGE}
-                alt="Enterprise technology"
+                alt="Enterprise server infrastructure representing Gabe Kim's cloud engineering work"
+                width="600"
+                height="416"
+                fetchpriority="high"
                 style={{ x: imgX, y: imgY, scale: 1.12 }}
                 className="w-full h-[26rem] object-cover"
                 data-testid="hero-image"
@@ -168,6 +171,7 @@ export const Hero = () => {
 
       <motion.a
         href="#about"
+        aria-label="Scroll to about section"
         data-testid="hero-scroll-indicator"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

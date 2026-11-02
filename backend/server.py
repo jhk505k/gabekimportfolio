@@ -190,6 +190,14 @@ async def get_contact_messages():
     return messages
 
 
+@app.middleware("http")
+async def add_cache_headers(request, call_next):
+    response = await call_next(request)
+    if request.url.path.startswith(("/certs/", "/static/")):
+        response.headers["Cache-Control"] = "public, max-age=31536000, immutable"
+    return response
+
+
 app.include_router(api_router)
 
 app.add_middleware(

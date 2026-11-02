@@ -98,8 +98,10 @@ export const Projects = () => {
                 <div className="relative h-44 overflow-hidden">
                   <img
                     src={p.image}
-                    alt={p.title}
+                    alt={`${p.title} — ${p.category} project at ${p.company}`}
                     loading="lazy"
+                    width="400"
+                    height="176"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     data-testid={`project-image-${p.id}`}
                   />

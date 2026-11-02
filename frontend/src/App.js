@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import Lenis from "lenis";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "sonner";
@@ -6,14 +6,15 @@ import "@/App.css";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { Marquee } from "@/components/Marquee";
-import { About } from "@/components/About";
-import { Skills } from "@/components/Skills";
-import { Experience } from "@/components/Experience";
-import { Projects } from "@/components/Projects";
-import { Education } from "@/components/Education";
-import { Contact } from "@/components/Contact";
-import { Footer } from "@/components/Footer";
-import ProjectDetail from "@/pages/ProjectDetail";
+
+const About = lazy(() => import("@/components/About").then((m) => ({ default: m.About })));
+const Skills = lazy(() => import("@/components/Skills").then((m) => ({ default: m.Skills })));
+const Experience = lazy(() => import("@/components/Experience").then((m) => ({ default: m.Experience })));
+const Projects = lazy(() => import("@/components/Projects").then((m) => ({ default: m.Projects })));
+const Education = lazy(() => import("@/components/Education").then((m) => ({ default: m.Education })));
+const Contact = lazy(() => import("@/components/Contact").then((m) => ({ default: m.Contact })));
+const Footer = lazy(() => import("@/components/Footer").then((m) => ({ default: m.Footer })));
+const ProjectDetail = lazy(() => import("@/pages/ProjectDetail"));
 
 const Home = () => (
   <>
@@ -21,14 +22,18 @@ const Home = () => (
     <main>
       <Hero />
       <Marquee />
-      <About />
-      <Skills />
-      <Experience />
-      <Projects />
-      <Education />
-      <Contact />
+      <Suspense fallback={<div className="min-h-screen" />}>
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Education />
+        <Contact />
+      </Suspense>
     </main>
-    <Footer />
+    <Suspense fallback={null}>
+      <Footer />
+    </Suspense>
   </>
 );
 
@@ -60,10 +65,12 @@ function App() {
   return (
     <div className="App bg-[#090A0F] min-h-screen">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects/:id" element={<ProjectDetail />} />
-        </Routes>
+        <Suspense fallback={<div className="min-h-screen bg-[#090A0F]" />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects/:id" element={<ProjectDetail />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
       <Toaster theme="dark" position="bottom-right" richColors />
     </div>

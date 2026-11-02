@@ -60,7 +60,10 @@ export default function ProjectDetail() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             src={project.image}
-            alt={project.title}
+            alt={`${project.title} — ${project.category} project at ${project.company}`}
+            width="1200"
+            height="640"
+            loading="lazy"
             className="w-full h-full object-cover"
             data-testid="detail-hero-image"
           />
