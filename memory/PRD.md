@@ -53,8 +53,13 @@
 - Live Site badges now only show for true live-site projects (no linkLabel set).
 - Sensor Gateway + Goseong/Sacheon images replaced with official SIOT InfoTech white logo on dark background.
 
+## Implemented (2026-11-03, iteration 8)
+- MasonIntelligence removed from experience (6 roles) and M-STT removed from projects (13 projects) per user request. Counts updated everywhere; resume PDF regenerated without it.
+- AWS skills expanded: EC2, RDS, S3, Route53, CloudFront, Lambda, EKS & ECS, Load Balancer (plus Docker, Kubernetes+ArgoCD, Jenkins, GitHub Actions).
+- MICUBE AI project: "About MICUBE Solution" button linking to micube.co.kr/en/micube.
+
 ## Backlog
-- P0: Replace remaining placeholder images (m-stt, micube-ai) with user's real pictures if provided.
+- P0: No remaining placeholder images to replace (all projects have real logos/images).
 - P1: SEO meta/OG/JSON-LD + sitemap (farm-seo-setup skill).
 - P2: Admin page to view contact messages in-browser (GET /api/contact exists).
 

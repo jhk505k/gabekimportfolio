@@ -97,7 +97,7 @@ export const Projects = () => {
         <SectionHeading
           index="04"
           title="Selected Work"
-          sub="Fourteen production systems across national healthcare, blockchain, banking, telecom, smart cities and applied AI. Click any project for the full breakdown."
+          sub="Thirteen production systems across national healthcare, blockchain, banking, telecom, smart cities and applied AI. Click any project for the full breakdown."
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {PROJECTS.map((p, i) => (

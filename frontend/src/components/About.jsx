@@ -4,8 +4,8 @@ import { Globe, ShieldCheck, Languages } from "lucide-react";
 
 const STATS = [
   { value: "8+", label: "Years Experience" },
-  { value: "14", label: "Enterprise Projects" },
-  { value: "7", label: "Companies" },
+  { value: "13", label: "Enterprise Projects" },
+  { value: "6", label: "Companies" },
   { value: "6", label: "Industries" },
 ];
 
