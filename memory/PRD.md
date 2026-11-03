@@ -42,8 +42,11 @@
 - Lighthouse/SEO pass: compressed all project + hero images (webp/resized), lazy-loaded below-fold images and sections, full SEO meta + OG/Twitter cards + JSON-LD + robots.txt + sitemap.xml, alt text, cache headers for /certs and /static. Scores now: Perf 41 (platform preview overhead — production build will score much higher), A11y 92, BP 77, SEO 69.
 - SEHATI Bahrain added as project #2 (14 projects total): national healthcare category, live hero image from sehati.gov.bh, "Visit Live Website" link in project modal + case study page, "Live Site" badge on grid card. Counts updated to 14 everywhere (hero, about stats, meta tags).
 
+## Implemented (2026-11-03, iteration 5)
+- Live-site links + real website imagery for 6 projects: HiddenTag (hiddentag.com USA), SEHATI (sehati.gov.bh), GS Postbox (gspostbox.com), LG U+ (lguplus.com), Shinhan Bank (shinhan.com/en — internal ERP, placeholder image kept), Korean SSIS (ssis.or.kr). Real banner images scraped from each site, compressed to webp in /frontend/public/projects/. "Visit Live Website" button in modal + case study page; "Live Site" badge on grid cards.
+
 ## Backlog
-- P0: Replace 13 placeholder project images with user's real project pictures.
+- P0: Replace remaining placeholder project images (middleblock, yeosu, sensor-gateway, goseong-sacheon, m-stt, micube-ai, daeduk-pd, hyundai-cv) with user's real project pictures.
 - P1: SEO meta/OG/JSON-LD + sitemap (farm-seo-setup skill).
 - P2: Admin page to view contact messages in-browser (GET /api/contact exists).
 
