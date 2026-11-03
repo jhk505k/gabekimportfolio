@@ -54,7 +54,7 @@ const ProjectModal = ({ project, onClose }) => (
             data-testid="project-modal-live-link"
             className="group mt-8 flex items-center justify-center gap-2 w-full border border-[#00F0FF]/40 text-[#00F0FF] font-display font-bold text-sm px-6 py-3.5 rounded-full hover:bg-[#00F0FF] hover:text-[#090A0F] transition-colors"
           >
-            Visit Live Website
+            {project.linkLabel || "Visit Live Website"}
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </a>
         )}
@@ -121,7 +121,7 @@ export const Projects = () => {
                   <span className="absolute top-3 left-3 font-mono text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full bg-[#090A0F]/75 border border-white/15 text-[#00F0FF]">
                     {p.category}
                   </span>
-                  {p.link && (
+                  {p.link && !p.linkLabel && (
                     <span className="absolute bottom-3 right-3 font-mono text-[9px] uppercase tracking-widest px-2 py-1 rounded-full bg-[#00F0FF]/15 border border-[#00F0FF]/40 text-[#00F0FF]">
                       Live Site
                     </span>

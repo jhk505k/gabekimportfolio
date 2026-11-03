@@ -134,7 +134,7 @@ export default function ProjectDetail() {
               data-testid="detail-live-link"
               className="group mt-12 flex items-center justify-center gap-2 w-full sm:w-fit border border-[#00F0FF]/40 text-[#00F0FF] font-display font-bold text-sm px-8 py-3.5 rounded-full hover:bg-[#00F0FF] hover:text-[#090A0F] transition-colors"
             >
-              Visit Live Website
+              {project.linkLabel || "Visit Live Website"}
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </motion.a>
           )}

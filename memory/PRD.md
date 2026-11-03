@@ -48,8 +48,13 @@
 ## Implemented (2026-11-03, iteration 6)
 - Middleblock: new blockchain-themed image. Shinhan: real Shinhan Bank logo (logos-world) instead of graph image. Sensor Gateway: IoT/sensor machinery image. Daeduk: official Daeduck SVG logo extracted from daeduck.com, linked to daeduck.com/en. Hyundai CV: real Chungju bioenergy center aerial photo from Yonhap news, linked to the Yonhap article; description now names 충주 음식물 바이오에너지센터 (Chungju Food Waste Bioenergy Center), a Hyundai E&C facility converting 80t/day food waste to bio-methane, with Korean name in parentheses.
 
+## Implemented (2026-11-03, iteration 7)
+- Button labels: Hyundai → "About Chungju Food Waste Bioenergy Center" (links to Yonhap article); Daeduk → "About Daeduck Electronic" (daeduck.com); Sensor Gateway + Goseong/Sacheon → "About SIOT InfoTech" (siotinfotech.com); Middleblock + Yeosu → "About BFLabs" (bflabs.co.kr).
+- Live Site badges now only show for true live-site projects (no linkLabel set).
+- Sensor Gateway + Goseong/Sacheon images replaced with official SIOT InfoTech white logo on dark background.
+
 ## Backlog
-- P0: Replace remaining placeholder images (yeosu-flagship, goseong-sacheon, m-stt, micube-ai) with user's real pictures if provided.
+- P0: Replace remaining placeholder images (m-stt, micube-ai) with user's real pictures if provided.
 - P1: SEO meta/OG/JSON-LD + sitemap (farm-seo-setup skill).
 - P2: Admin page to view contact messages in-browser (GET /api/contact exists).
 
