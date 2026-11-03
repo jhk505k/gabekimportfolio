@@ -78,7 +78,7 @@
 ## Backlog
 - P1: User to revise Nerget + StarHub case study text (as requested).
 - P1: User to add RESEND_API_KEY secret for live email alerts.
-- P1: User to re-upload micubelogo for MICUBE AI project image.
+- MICUBE logo (user-uploaded) applied to MICUBE AI project — all 15 projects now have real brand imagery.
 - P1: SEO meta/OG/JSON-LD + sitemap (farm-seo-setup skill).
 - P2: Admin page to view contact messages in-browser (GET /api/contact exists).
 

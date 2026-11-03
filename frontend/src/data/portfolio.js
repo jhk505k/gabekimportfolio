@@ -273,7 +273,7 @@ export const PROJECTS = [
     category: "AI Analytics",
     link: "https://www.micube.co.kr/en/micube",
     linkLabel: "About MICUBE Solution",
-    image: "https://images.unsplash.com/photo-1674027444485-cec3da58eef4?auto=format&fit=crop&w=800&q=60",
+    image: "/projects/micube-logo.webp",
     description: "Developed an AI visualization dashboard for a KISA government project with real-time analytics and charting.",
     tech: ["Java Spring", "Angular", "Python"],
     challenge: "KISA needed a way to make AI model outputs and security analytics understandable to non-technical government stakeholders.",
