@@ -45,8 +45,11 @@
 ## Implemented (2026-11-03, iteration 5)
 - Live-site links + real website imagery for 6 projects: HiddenTag (hiddentag.com USA), SEHATI (sehati.gov.bh), GS Postbox (gspostbox.com), LG U+ (lguplus.com), Shinhan Bank (shinhan.com/en — internal ERP, placeholder image kept), Korean SSIS (ssis.or.kr). Real banner images scraped from each site, compressed to webp in /frontend/public/projects/. "Visit Live Website" button in modal + case study page; "Live Site" badge on grid cards.
 
+## Implemented (2026-11-03, iteration 6)
+- Middleblock: new blockchain-themed image. Shinhan: real Shinhan Bank logo (logos-world) instead of graph image. Sensor Gateway: IoT/sensor machinery image. Daeduk: official Daeduck SVG logo extracted from daeduck.com, linked to daeduck.com/en. Hyundai CV: real Chungju bioenergy center aerial photo from Yonhap news, linked to the Yonhap article; description now names 충주 음식물 바이오에너지센터 (Chungju Food Waste Bioenergy Center), a Hyundai E&C facility converting 80t/day food waste to bio-methane, with Korean name in parentheses.
+
 ## Backlog
-- P0: Replace remaining placeholder project images (middleblock, yeosu, sensor-gateway, goseong-sacheon, m-stt, micube-ai, daeduk-pd, hyundai-cv) with user's real project pictures.
+- P0: Replace remaining placeholder images (yeosu-flagship, goseong-sacheon, m-stt, micube-ai) with user's real pictures if provided.
 - P1: SEO meta/OG/JSON-LD + sitemap (farm-seo-setup skill).
 - P2: Admin page to view contact messages in-browser (GET /api/contact exists).
 
