@@ -61,6 +61,9 @@
 ## Implemented (2026-11-03, iteration 9)
 - Added 2 Compax Digital projects (15 total): LG U+ Nerget BSS Integration (links to lguplus.com/nerget/main?p=3) and StarHub Telecommunication Integration (links to starhub.com/personal.html), both with full case studies. Nerget reuses the real LG U+ banner image; StarHub uses a network equipment image (starhub.com blocks scraping). Counts updated everywhere; sitemap updated.
 
+## Implemented (2026-11-03, iteration 10)
+- User-uploaded logos applied: nerget logo → Nerget project; StarHub logo → StarHub project; LG U+ logo → LG U+ Digital Catalog project.
+
 ## Backlog
 - P1: User to revise Nerget + StarHub case study text (as requested).
 - P1: SEO meta/OG/JSON-LD + sitemap (farm-seo-setup skill).
