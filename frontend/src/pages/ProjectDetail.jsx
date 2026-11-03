@@ -122,6 +122,23 @@ export default function ProjectDetail() {
             ))}
           </div>
 
+          {project.link && (
+            <motion.a
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="detail-live-link"
+              className="group mt-12 flex items-center justify-center gap-2 w-full sm:w-fit border border-[#00F0FF]/40 text-[#00F0FF] font-display font-bold text-sm px-8 py-3.5 rounded-full hover:bg-[#00F0FF] hover:text-[#090A0F] transition-colors"
+            >
+              Visit Live Website — sehati.gov.bh
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </motion.a>
+          )}
+
           <div className="mt-12">
             <p className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.3em] text-slate-500 mb-4">
               <Tag size={12} /> Tech Stack

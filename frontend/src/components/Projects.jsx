@@ -46,6 +46,18 @@ const ProjectModal = ({ project, onClose }) => (
         <p className="mt-5 text-sm text-slate-400 leading-relaxed" data-testid="project-modal-description">
           {project.description}
         </p>
+        {project.link && (
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="project-modal-live-link"
+            className="group mt-8 flex items-center justify-center gap-2 w-full border border-[#00F0FF]/40 text-[#00F0FF] font-display font-bold text-sm px-6 py-3.5 rounded-full hover:bg-[#00F0FF] hover:text-[#090A0F] transition-colors"
+          >
+            Visit Live Website
+            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          </a>
+        )}
         <div className="mt-6">
           <p className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.3em] text-slate-500 mb-3">
             <Tag size={12} /> Tech Stack
@@ -85,7 +97,7 @@ export const Projects = () => {
         <SectionHeading
           index="04"
           title="Selected Work"
-          sub="Thirteen production systems across blockchain, banking, telecom, smart cities and applied AI. Click any project for the full breakdown."
+          sub="Fourteen production systems across national healthcare, blockchain, banking, telecom, smart cities and applied AI. Click any project for the full breakdown."
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {PROJECTS.map((p, i) => (
@@ -109,6 +121,11 @@ export const Projects = () => {
                   <span className="absolute top-3 left-3 font-mono text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full bg-[#090A0F]/75 border border-white/15 text-[#00F0FF]">
                     {p.category}
                   </span>
+                  {p.link && (
+                    <span className="absolute bottom-3 right-3 font-mono text-[9px] uppercase tracking-widest px-2 py-1 rounded-full bg-[#00F0FF]/15 border border-[#00F0FF]/40 text-[#00F0FF]">
+                      Live Site
+                    </span>
+                  )}
                   <span className="absolute top-3 right-3 font-display font-black text-xl text-white/20 group-hover:text-[#FF5E1A] transition-colors">
                     {String(i + 1).padStart(2, "0")}
                   </span>

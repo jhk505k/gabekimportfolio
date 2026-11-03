@@ -38,6 +38,10 @@
 - Certification proof on click: 3 Microsoft certificate PDFs converted to images (C# Specialist F333-1096; MCSA Windows Server 2012 Charter Member E207-0223; MCSE Private Cloud G091-9233) + Cisco transcript image + CompTIA transcript image served from /certs/. Clicking any certification opens a viewer modal with "Open Full" link.
 - Certifications list expanded to 7: 3 Microsoft + CCNP R&S (CSCO12143672, Jan 2015–Jan 2018, Expired) + CCNA R&S (Feb 2013–Jan 2018, Expired) + CompTIA Security+ ce (Sep 2015–Sep 2018, COMP001020382835) + CompTIA Network+ ce (Mar 2012–Mar 2015). Resume PDF regenerated with full list.
 
+## Implemented (2026-11-03)
+- Lighthouse/SEO pass: compressed all project + hero images (webp/resized), lazy-loaded below-fold images and sections, full SEO meta + OG/Twitter cards + JSON-LD + robots.txt + sitemap.xml, alt text, cache headers for /certs and /static. Scores now: Perf 41 (platform preview overhead — production build will score much higher), A11y 92, BP 77, SEO 69.
+- SEHATI Bahrain added as project #2 (14 projects total): national healthcare category, live hero image from sehati.gov.bh, "Visit Live Website" link in project modal + case study page, "Live Site" badge on grid card. Counts updated to 14 everywhere (hero, about stats, meta tags).
+
 ## Backlog
 - P0: Replace 13 placeholder project images with user's real project pictures.
 - P1: SEO meta/OG/JSON-LD + sitemap (farm-seo-setup skill).
