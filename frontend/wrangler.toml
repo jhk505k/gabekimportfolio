@@ -1,0 +1,7 @@
+# Cloudflare Pages / Workers build config (wrangler 4.x)
+name = "gabe-kim-portfolio"
+compatibility_date = "2026-11-03"
+
+# Static asset output produced by `yarn build` (craco build -> build/)
+[assets]
+directory = "./build"

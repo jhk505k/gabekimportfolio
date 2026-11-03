@@ -1,0 +1,3 @@
+/* Cloudflare Pages SPA fallback: all non-file routes serve index.html
+   so /projects/... case-study pages work on refresh. */
+/*    /index.html   200

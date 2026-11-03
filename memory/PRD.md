@@ -84,8 +84,12 @@
 ## Implemented (2026-11-03, iteration 15)
 - Fixed EC2 deployment blocker: removed emergentintegrations + litellm (platform-internal packages) from requirements.txt. Fresh-venv install verified; backend starts cleanly off-platform. requirements.txt is now pure public PyPI.
 
+## Implemented (2026-11-03, iteration 16)
+- Cloudflare Pages deploy prep: added frontend/wrangler.toml (assets dir = build) + public/_redirects (SPA fallback so /projects/... routes work). Domain set to gabekimportfolio.dev in SEO meta/robots/sitemap. Confirmed frontend is 100% static (no backend API calls — contact is mailto/clipboard), so it deploys to Pages with zero API config. Backend/MongoDB stay separate (EC2 or Emergent).
+
 ## Backlog
 - P1: User to revise Nerget + StarHub case study text (as requested).
+- P1: User deploying frontend to Cloudflare Pages at gabekimportfolio.dev.
 - MICUBE logo (user-uploaded) applied to MICUBE AI project — all 15 projects now have real brand imagery.
 - P1: SEO meta/OG/JSON-LD + sitemap (farm-seo-setup skill).
 - P2: Admin page to view contact messages in-browser (GET /api/contact exists).

@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://me-and-my-work-2--51oo0pj3.preview.emergentagent.com/sitemap.xml
+Sitemap: https://gabekimportfolio.dev/sitemap.xml
