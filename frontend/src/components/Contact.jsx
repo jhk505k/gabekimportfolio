@@ -4,22 +4,24 @@ import { toast } from "sonner";
 import { Reveal, SectionHeading } from "./Reveal";
 import { LINKS } from "../data/portfolio";
 import { Linkedin, Github, Mail, Phone, MapPin, Send, Loader2 } from "lucide-react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
 export const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sending, setSending] = useState(false);
+  const { t } = useLanguage();
 
   const onSubmit = async (e) => {
     e.preventDefault();
     setSending(true);
     try {
       await axios.post(`${API}/contact`, form);
-      toast.success("Message sent — Gabe will get back to you soon.");
+      toast.success(t("toast_success"));
       setForm({ name: "", email: "", message: "" });
     } catch (err) {
-      toast.error("Could not send the message. Please try email instead.");
+      toast.error(t("toast_error"));
     } finally {
       setSending(false);
     }
@@ -30,11 +32,7 @@ export const Contact = () => {
   return (
     <section id="contact" data-testid="contact-section" className="bg-[#11131A] border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 py-20 lg:py-28">
-        <SectionHeading
-          index="06"
-          title="Let's Build Something"
-          sub="Hiring for a senior backend or full-stack role? Send a message — every enquiry lands straight in Gabe's inbox list."
-        />
+        <SectionHeading index="06" title={t("contact_title")} sub={t("contact_sub")} />
         <div className="grid lg:grid-cols-12 gap-10">
           <Reveal className="lg:col-span-5" delay={0.1}>
             <div className="flex flex-col gap-4">
@@ -86,7 +84,7 @@ export const Contact = () => {
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
                   <label htmlFor="contact-name" className="block font-mono text-[10px] uppercase tracking-[0.3em] text-slate-500 mb-2">
-                    Name
+                    {t("name_label")}
                   </label>
                   <input
                     id="contact-name"
@@ -94,13 +92,13 @@ export const Contact = () => {
                     required
                     value={form.name}
                     onChange={set("name")}
-                    placeholder="Jane Recruiter"
+                    placeholder={t("name_ph")}
                     className="w-full bg-[#090A0F] border border-white/10 rounded-lg px-4 py-3 text-sm text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-[#FF5E1A] transition-colors"
                   />
                 </div>
                 <div>
                   <label htmlFor="contact-email" className="block font-mono text-[10px] uppercase tracking-[0.3em] text-slate-500 mb-2">
-                    Email
+                    {t("email_label")}
                   </label>
                   <input
                     id="contact-email"
@@ -109,14 +107,14 @@ export const Contact = () => {
                     required
                     value={form.email}
                     onChange={set("email")}
-                    placeholder="jane@company.com"
+                    placeholder={t("email_ph")}
                     className="w-full bg-[#090A0F] border border-white/10 rounded-lg px-4 py-3 text-sm text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-[#FF5E1A] transition-colors"
                   />
                 </div>
               </div>
               <div>
                 <label htmlFor="contact-message" className="block font-mono text-[10px] uppercase tracking-[0.3em] text-slate-500 mb-2">
-                  Message
+                  {t("message_label")}
                 </label>
                 <textarea
                   id="contact-message"
@@ -125,7 +123,7 @@ export const Contact = () => {
                   rows={5}
                   value={form.message}
                   onChange={set("message")}
-                  placeholder="Tell me about the role or project…"
+                  placeholder={t("msg_ph")}
                   className="w-full bg-[#090A0F] border border-white/10 rounded-lg px-4 py-3 text-sm text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-[#FF5E1A] transition-colors resize-none"
                 />
               </div>
@@ -136,7 +134,7 @@ export const Contact = () => {
                 className="group self-start flex items-center gap-2 bg-[#FF5E1A] text-[#090A0F] font-display font-bold text-sm px-8 py-3.5 rounded-full hover:bg-[#00F0FF] disabled:opacity-60 transition-colors"
               >
                 {sending ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} className="group-hover:translate-x-0.5 transition-transform" />}
-                {sending ? "Sending…" : "Send Message"}
+                {sending ? t("sending") : t("send")}
               </button>
             </form>
           </Reveal>

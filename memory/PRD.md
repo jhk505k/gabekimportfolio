@@ -75,6 +75,9 @@
 - micubelogo upload did not arrive — MICUBE image unchanged, awaiting re-upload.
 - Email alert key card skipped by user — RESEND_API_KEY still empty; alerts remain paused but code is EC2-ready.
 
+## Implemented (2026-11-03, iteration 13)
+- Full trilingual support (English default → Korean → Chinese): globe language switcher in nav (desktop + mobile), persisted in localStorage, sets document lang. All UI strings, section content, 6 experience roles, and all 15 projects (title/category/description/challenge/approach/outcome) translated in src/i18n/. English fallback for anything untranslated.
+
 ## Backlog
 - P1: User to revise Nerget + StarHub case study text (as requested).
 - P1: User to add RESEND_API_KEY secret for live email alerts.

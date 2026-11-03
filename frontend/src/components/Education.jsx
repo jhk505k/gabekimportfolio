@@ -3,89 +3,86 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Reveal, SectionHeading } from "./Reveal";
 import { EDUCATION, CERTIFICATIONS } from "../data/portfolio";
 import { GraduationCap, Award, X, ExternalLink } from "lucide-react";
+import { useLanguage } from "../i18n/LanguageContext";
 
-const STATUS_STYLES = {
-  Active: "bg-[#00F0FF]/10 border-[#00F0FF]/40 text-[#00F0FF]",
-  Inactive: "bg-[#FF5E1A]/10 border-[#FF5E1A]/40 text-[#FF5E1A]",
-  Expired: "bg-white/5 border-white/20 text-slate-500",
-};
-
-const ProofModal = ({ cert, onClose }) => (
-  <motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-[#090A0F]/90 backdrop-blur-md"
-    onClick={onClose}
-    data-testid="cert-proof-overlay"
-  >
+const ProofModal = ({ cert, onClose }) => {
+  const { t } = useLanguage();
+  return (
     <motion.div
-      initial={{ opacity: 0, y: 30, scale: 0.96 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: 30, scale: 0.96 }}
-      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-      onClick={(e) => e.stopPropagation()}
-      data-testid="cert-proof-modal"
-      className="relative w-full max-w-4xl max-h-[90vh] flex flex-col rounded-2xl border border-white/15 bg-[#11131A] shadow-2xl overflow-hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-[#090A0F]/90 backdrop-blur-md"
+      onClick={onClose}
+      data-testid="cert-proof-overlay"
     >
-      <div className="flex items-center justify-between gap-4 px-5 py-4 border-b border-white/10">
-        <div className="min-w-0">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#00F0FF]">{cert.issuer}</p>
-          <h3 className="font-display font-bold text-base sm:text-lg text-slate-100 truncate" data-testid="cert-proof-title">
-            {cert.name}
-          </h3>
+      <motion.div
+        initial={{ opacity: 0, y: 30, scale: 0.96 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 30, scale: 0.96 }}
+        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        onClick={(e) => e.stopPropagation()}
+        data-testid="cert-proof-modal"
+        className="relative w-full max-w-4xl max-h-[90vh] flex flex-col rounded-2xl border border-white/15 bg-[#11131A] shadow-2xl overflow-hidden"
+      >
+        <div className="flex items-center justify-between gap-4 px-5 py-4 border-b border-white/10">
+          <div className="min-w-0">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#00F0FF]">{cert.issuer}</p>
+            <h3 className="font-display font-bold text-base sm:text-lg text-slate-100 truncate" data-testid="cert-proof-title">
+              {cert.name}
+            </h3>
+          </div>
+          <div className="flex items-center gap-2 shrink-0">
+            <a
+              href={cert.proof.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="cert-proof-open-full"
+              className="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-widest text-slate-400 hover:text-[#FF5E1A] transition-colors px-2 py-1"
+            >
+              <ExternalLink size={13} /> {t("open_full")}
+            </a>
+            <button
+              onClick={onClose}
+              data-testid="cert-proof-close"
+              className="p-2 rounded-full bg-[#090A0F]/70 border border-white/15 text-slate-200 hover:text-[#FF5E1A] hover:border-[#FF5E1A] transition-colors"
+              aria-label="Close certificate"
+            >
+              <X size={16} />
+            </button>
+          </div>
         </div>
-        <div className="flex items-center gap-2 shrink-0">
-          <a
-            href={cert.proof.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-testid="cert-proof-open-full"
-            className="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-widest text-slate-400 hover:text-[#FF5E1A] transition-colors px-2 py-1"
-          >
-            <ExternalLink size={13} /> Open Full
-          </a>
-          <button
-            onClick={onClose}
-            data-testid="cert-proof-close"
-            className="p-2 rounded-full bg-[#090A0F]/70 border border-white/15 text-slate-200 hover:text-[#FF5E1A] hover:border-[#FF5E1A] transition-colors"
-            aria-label="Close certificate"
-          >
-            <X size={16} />
-          </button>
-        </div>
-      </div>
-      <div className="flex-1 overflow-auto bg-[#090A0F]">
-        {cert.proof.type === "pdf" ? (
-          <iframe
-            src={cert.proof.url}
-            title={cert.name}
-            data-testid="cert-proof-pdf"
-            className="w-full h-[70vh]"
-          />
-        ) : (
+        <div className="flex-1 overflow-auto bg-[#090A0F]">
           <img
             src={cert.proof.url}
             alt={`${cert.name} verification`}
             data-testid="cert-proof-image"
             className="w-full h-auto"
           />
-        )}
-      </div>
+        </div>
+      </motion.div>
     </motion.div>
-  </motion.div>
-);
+  );
+};
 
 export const Education = () => {
   const [active, setActive] = useState(null);
+  const { t } = useLanguage();
+
+  const STATUS_STYLES = {
+    Active: "bg-[#00F0FF]/10 border-[#00F0FF]/40 text-[#00F0FF]",
+    Inactive: "bg-[#FF5E1A]/10 border-[#FF5E1A]/40 text-[#FF5E1A]",
+    Expired: "bg-white/5 border-white/20 text-slate-500",
+  };
+  const STATUS_LABELS = {
+    Active: t("status_active"),
+    Inactive: t("status_inactive"),
+    Expired: t("status_expired"),
+  };
 
   return (
     <section id="education" data-testid="education-section" className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 py-20 lg:py-28">
-      <SectionHeading
-        index="05"
-        title="Education & Credentials"
-        sub="Click any certification to view its official certificate or transcript."
-      />
+      <SectionHeading index="05" title={t("edu_title")} sub={t("edu_sub")} />
       <div className="grid lg:grid-cols-2 gap-6">
         <div className="flex flex-col gap-6">
           {EDUCATION.map((ed, i) => (
@@ -128,7 +125,7 @@ export const Education = () => {
                       data-testid={`certification-status-${i}`}
                       className={`font-mono text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full border ${STATUS_STYLES[c.status]}`}
                     >
-                      {c.status}
+                      {STATUS_LABELS[c.status]}
                     </span>
                   </div>
                   <p className="mt-1.5 font-mono text-[11px] text-slate-400">
@@ -136,8 +133,8 @@ export const Education = () => {
                     {c.id && <span className="text-slate-500"> · ID {c.id}</span>}
                   </p>
                   <p className="mt-1 font-mono text-[11px] text-slate-500">
-                    Earned {c.earned}
-                    {c.expires && <span> · Expired {c.expires}</span>}
+                    {t("earned")} {c.earned}
+                    {c.expires && <span> · {t("expired")} {c.expires}</span>}
                   </p>
                   {c.proof && (
                     <p className="mt-2.5 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-slate-500 group-hover:text-[#00F0FF] transition-colors">

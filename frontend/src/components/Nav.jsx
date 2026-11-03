@@ -1,16 +1,8 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X, Download, Globe } from "lucide-react";
 import { LINKS } from "../data/portfolio";
-
-const NAV_LINKS = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Education", href: "#education" },
-  { label: "Contact", href: "#contact" },
-];
+import { useLanguage, LANGUAGES } from "../i18n/LanguageContext";
 
 export const LogoMark = ({ size = 36 }) => (
   <svg width={size} height={size} viewBox="0 0 64 64" data-testid="logo-mark">
@@ -23,12 +15,22 @@ export const LogoMark = ({ size = 36 }) => (
 export const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { lang, setLang, t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const NAV_LINKS = [
+    { label: t("nav_about"), href: "#about" },
+    { label: t("nav_skills"), href: "#skills" },
+    { label: t("nav_experience"), href: "#experience" },
+    { label: t("nav_projects"), href: "#projects" },
+    { label: t("nav_education"), href: "#education" },
+    { label: t("nav_contact"), href: "#contact" },
+  ];
 
   return (
     <motion.header
@@ -48,24 +50,41 @@ export const Nav = () => {
           </span>
         </a>
 
-        <div className="hidden lg:flex items-center gap-7">
+        <div className="hidden lg:flex items-center gap-6">
           {NAV_LINKS.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              data-testid={`nav-link-${l.label.toLowerCase()}`}
+              data-testid={`nav-link-${l.href.slice(1)}`}
               className="font-mono text-xs uppercase tracking-widest text-slate-400 hover:text-[#FF5E1A] transition-colors"
             >
               {l.label}
             </a>
           ))}
+          <div className="flex items-center gap-1 border border-white/10 rounded-full p-1" data-testid="lang-switcher">
+            <Globe size={12} className="ml-1.5 text-slate-500" />
+            {LANGUAGES.map((l) => (
+              <button
+                key={l.code}
+                onClick={() => setLang(l.code)}
+                data-testid={`lang-${l.code}`}
+                className={`px-2.5 py-1 rounded-full font-mono text-[11px] transition-colors ${
+                  lang === l.code
+                    ? "bg-[#FF5E1A] text-[#090A0F] font-bold"
+                    : "text-slate-400 hover:text-slate-100"
+                }`}
+              >
+                {l.short}
+              </button>
+            ))}
+          </div>
           <a
             href={LINKS.resume}
             download
             data-testid="nav-resume-button"
             className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest bg-[#FF5E1A] text-[#090A0F] font-semibold px-4 py-2 rounded-full hover:bg-[#00F0FF] transition-colors"
           >
-            <Download size={14} /> Resume
+            <Download size={14} /> {t("nav_resume")}
           </a>
         </div>
 
@@ -95,19 +114,36 @@ export const Nav = () => {
                   key={l.href}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  data-testid={`nav-mobile-link-${l.label.toLowerCase()}`}
+                  data-testid={`nav-mobile-link-${l.href.slice(1)}`}
                   className="font-mono text-sm uppercase tracking-widest text-slate-300 hover:text-[#FF5E1A] transition-colors"
                 >
                   {l.label}
                 </a>
               ))}
+              <div className="flex items-center gap-2 pt-2 border-t border-white/10" data-testid="lang-switcher-mobile">
+                <Globe size={14} className="text-slate-500" />
+                {LANGUAGES.map((l) => (
+                  <button
+                    key={l.code}
+                    onClick={() => { setLang(l.code); setOpen(false); }}
+                    data-testid={`lang-mobile-${l.code}`}
+                    className={`px-3 py-1.5 rounded-full font-mono text-xs transition-colors ${
+                      lang === l.code
+                        ? "bg-[#FF5E1A] text-[#090A0F] font-bold"
+                        : "border border-white/15 text-slate-400"
+                    }`}
+                  >
+                    {l.label}
+                  </button>
+                ))}
+              </div>
               <a
                 href={LINKS.resume}
                 download
                 data-testid="nav-mobile-resume-button"
                 className="flex items-center gap-2 font-mono text-sm uppercase tracking-widest text-[#FF5E1A]"
               >
-                <Download size={16} /> Download Resume
+                <Download size={16} /> {t("nav_resume")}
               </a>
             </div>
           </motion.div>

@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { ArrowDown, Download, MapPin } from "lucide-react";
 import { HERO_IMAGE, LINKS } from "../data/portfolio";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const MaskedLine = ({ children, delay }) => (
   <span className="block overflow-hidden">
@@ -18,6 +19,7 @@ const MaskedLine = ({ children, delay }) => (
 
 export const Hero = () => {
   const ref = useRef(null);
+  const { t } = useLanguage();
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
   const sx = useSpring(mx, { stiffness: 60, damping: 20 });
@@ -65,7 +67,7 @@ export const Hero = () => {
           >
             <span className="w-2 h-2 rounded-full bg-[#00F0FF] animate-pulse-glow" />
             <span className="font-mono text-xs uppercase tracking-[0.3em] text-slate-400" data-testid="hero-availability">
-              Available for new opportunities
+              {t("hero_availability")}
             </span>
           </motion.div>
 
@@ -79,12 +81,12 @@ export const Hero = () => {
             </MaskedLine>
             <MaskedLine delay={0.7}>
               <span className="text-stroke text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight">
-                FULL STACK JAVA
+                {t("hero_role1")}
               </span>
             </MaskedLine>
             <MaskedLine delay={0.82}>
               <span className="text-stroke text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight">
-                DEVELOPER
+                {t("hero_role2")}
               </span>
             </MaskedLine>
           </h1>
@@ -96,9 +98,7 @@ export const Hero = () => {
             className="mt-8 max-w-xl text-sm sm:text-base text-slate-400 leading-relaxed"
             data-testid="hero-subheadline"
           >
-            8+ years architecting high-concurrency enterprise systems across telecom,
-            banking, healthcare, IoT and AI — from legacy modernization to
-            cloud-native platforms on AWS & Kubernetes.
+            {t("hero_sub")}
           </motion.p>
 
           <motion.div
@@ -112,7 +112,7 @@ export const Hero = () => {
               data-testid="hero-projects-button"
               className="group flex items-center gap-2 bg-[#FF5E1A] text-[#090A0F] font-display font-bold text-sm px-7 py-3.5 rounded-full hover:bg-[#00F0FF] transition-colors"
             >
-              Explore 15 Projects
+              {t("hero_cta_projects")}
               <ArrowDown size={16} className="group-hover:translate-y-0.5 transition-transform" />
             </a>
             <a
@@ -121,7 +121,7 @@ export const Hero = () => {
               data-testid="hero-resume-button"
               className="flex items-center gap-2 border border-white/20 text-slate-200 font-display font-semibold text-sm px-7 py-3.5 rounded-full hover:border-[#FF5E1A] hover:text-[#FF5E1A] transition-colors"
             >
-              <Download size={16} /> Download Resume
+              <Download size={16} /> {t("hero_cta_resume")}
             </a>
             <span className="flex items-center gap-2 font-mono text-xs text-slate-500" data-testid="hero-location">
               <MapPin size={14} className="text-[#FF5E1A]" /> {LINKS.location}
@@ -156,12 +156,12 @@ export const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-[#090A0F] via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
                 <div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#00F0FF]">Since 2016</p>
-                  <p className="font-display font-bold text-lg text-slate-100">Enterprise Systems Engineer</p>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#00F0FF]">{t("hero_since")}</p>
+                  <p className="font-display font-bold text-lg text-slate-100">{t("hero_role_tag")}</p>
                 </div>
                 <div className="text-right">
                   <p className="font-display font-black text-3xl text-[#FF5E1A]">15</p>
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-slate-400">Projects</p>
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-slate-400">{t("hero_projects_label")}</p>
                 </div>
               </div>
             </div>
@@ -171,7 +171,7 @@ export const Hero = () => {
 
       <motion.a
         href="#about"
-        aria-label="Scroll to about section"
+        aria-label={t("hero_scroll")}
         data-testid="hero-scroll-indicator"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

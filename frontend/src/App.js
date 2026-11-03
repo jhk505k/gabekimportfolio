@@ -6,6 +6,7 @@ import "@/App.css";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { Marquee } from "@/components/Marquee";
+import { LanguageProvider } from "@/i18n/LanguageContext";
 
 const About = lazy(() => import("@/components/About").then((m) => ({ default: m.About })));
 const Skills = lazy(() => import("@/components/Skills").then((m) => ({ default: m.Skills })));
@@ -64,15 +65,17 @@ function App() {
 
   return (
     <div className="App bg-[#090A0F] min-h-screen">
-      <BrowserRouter>
-        <Suspense fallback={<div className="min-h-screen bg-[#090A0F]" />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/projects/:id" element={<ProjectDetail />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
-      <Toaster theme="dark" position="bottom-right" richColors />
+      <LanguageProvider>
+        <BrowserRouter>
+          <Suspense fallback={<div className="min-h-screen bg-[#090A0F]" />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/projects/:id" element={<ProjectDetail />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+        <Toaster theme="dark" position="bottom-right" richColors />
+      </LanguageProvider>
     </div>
   );
 }

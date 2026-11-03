@@ -4,15 +4,11 @@ import { motion } from "framer-motion";
 import { PROJECTS } from "../data/portfolio";
 import { LogoMark } from "../components/Nav";
 import { ArrowLeft, ArrowRight, Building2, Tag, Target, Wrench, Trophy } from "lucide-react";
-
-const SECTIONS = [
-  { key: "challenge", label: "The Challenge", icon: Target, color: "text-[#FF5E1A]", bg: "bg-[#FF5E1A]/10" },
-  { key: "approach", label: "The Approach", icon: Wrench, color: "text-[#00F0FF]", bg: "bg-[#00F0FF]/10" },
-  { key: "outcome", label: "The Outcome", icon: Trophy, color: "text-[#FF5E1A]", bg: "bg-[#FF5E1A]/10" },
-];
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function ProjectDetail() {
   const { id } = useParams();
+  const { t, tp } = useLanguage();
   const index = PROJECTS.findIndex((p) => p.id === id);
   const project = PROJECTS[index];
 
@@ -23,13 +19,19 @@ export default function ProjectDetail() {
   if (!project) {
     return (
       <div className="min-h-screen bg-[#090A0F] flex flex-col items-center justify-center gap-6" data-testid="project-not-found">
-        <p className="font-mono text-slate-400">Project not found.</p>
+        <p className="font-mono text-slate-400">{t("detail_notfound")}</p>
         <Link to="/" data-testid="back-home-link" className="text-[#FF5E1A] font-mono text-sm flex items-center gap-2">
-          <ArrowLeft size={16} /> Back to portfolio
+          <ArrowLeft size={16} /> {t("detail_back")}
         </Link>
       </div>
     );
   }
+
+  const SECTIONS = [
+    { key: "challenge", label: t("detail_challenge"), icon: Target, color: "text-[#FF5E1A]", bg: "bg-[#FF5E1A]/10" },
+    { key: "approach", label: t("detail_approach"), icon: Wrench, color: "text-[#00F0FF]", bg: "bg-[#00F0FF]/10" },
+    { key: "outcome", label: t("detail_outcome"), icon: Trophy, color: "text-[#FF5E1A]", bg: "bg-[#FF5E1A]/10" },
+  ];
 
   const prev = PROJECTS[(index - 1 + PROJECTS.length) % PROJECTS.length];
   const next = PROJECTS[(index + 1) % PROJECTS.length];
@@ -48,7 +50,7 @@ export default function ProjectDetail() {
             data-testid="back-to-projects-link"
             className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-slate-400 hover:text-[#FF5E1A] transition-colors"
           >
-            <ArrowLeft size={14} /> All Projects
+            <ArrowLeft size={14} /> {t("detail_all")}
           </Link>
         </nav>
       </header>
@@ -60,7 +62,7 @@ export default function ProjectDetail() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             src={project.image}
-            alt={`${project.title} — ${project.category} project at ${project.company}`}
+            alt={`${tp(project.id, "title", project.title)} — ${project.category} project at ${project.company}`}
             width="1200"
             height="640"
             loading="lazy"
@@ -76,10 +78,10 @@ export default function ProjectDetail() {
                 transition={{ delay: 0.3, duration: 0.7 }}
               >
                 <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#00F0FF]" data-testid="detail-category">
-                  {project.category} · Case Study {String(index + 1).padStart(2, "0")} / {PROJECTS.length}
+                  {tp(project.id, "category", project.category)} · {t("case_study")} {String(index + 1).padStart(2, "0")} / {PROJECTS.length}
                 </p>
                 <h1 className="mt-3 font-display font-black tracking-tight text-3xl sm:text-4xl lg:text-5xl text-slate-100" data-testid="detail-title">
-                  {project.title}
+                  {tp(project.id, "title", project.title)}
                 </h1>
                 <p className="mt-3 flex items-center gap-2 font-mono text-xs text-slate-400">
                   <Building2 size={14} className="text-[#FF5E1A]" /> {project.company}
@@ -97,7 +99,7 @@ export default function ProjectDetail() {
             className="text-base sm:text-lg text-slate-300 leading-relaxed border-l-2 border-[#FF5E1A] pl-6"
             data-testid="detail-summary"
           >
-            {project.description}
+            {tp(project.id, "description", project.description)}
           </motion.p>
 
           <div className="mt-14 flex flex-col gap-8">
@@ -117,7 +119,7 @@ export default function ProjectDetail() {
                   </span>
                   <h2 className="font-display font-bold text-xl text-slate-100">{s.label}</h2>
                 </div>
-                <p className="text-sm sm:text-base text-slate-400 leading-relaxed">{project[s.key]}</p>
+                <p className="text-sm sm:text-base text-slate-400 leading-relaxed">{tp(project.id, s.key, project[s.key])}</p>
               </motion.div>
             ))}
           </div>
@@ -134,23 +136,23 @@ export default function ProjectDetail() {
               data-testid="detail-live-link"
               className="group mt-12 flex items-center justify-center gap-2 w-full sm:w-fit border border-[#00F0FF]/40 text-[#00F0FF] font-display font-bold text-sm px-8 py-3.5 rounded-full hover:bg-[#00F0FF] hover:text-[#090A0F] transition-colors"
             >
-              {project.linkLabel || "Visit Live Website"}
+              {project.linkLabel || t("visit_live")}
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </motion.a>
           )}
 
           <div className="mt-12">
             <p className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.3em] text-slate-500 mb-4">
-              <Tag size={12} /> Tech Stack
+              <Tag size={12} /> {t("tech_stack")}
             </p>
             <div className="flex flex-wrap gap-2" data-testid="detail-tech-stack">
-              {project.tech.map((t) => (
+              {project.tech.map((tech) => (
                 <span
-                  key={t}
-                  data-testid={`detail-tech-${t.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                  key={tech}
+                  data-testid={`detail-tech-${tech.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
                   className="font-mono text-xs px-3 py-1.5 rounded-full bg-[#FF5E1A]/10 border border-[#FF5E1A]/30 text-[#FF5E1A]"
                 >
-                  {t}
+                  {tech}
                 </span>
               ))}
             </div>
@@ -163,16 +165,16 @@ export default function ProjectDetail() {
               className="group flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-slate-400 hover:text-[#FF5E1A] transition-colors"
             >
               <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-              <span className="hidden sm:inline">{prev.title}</span>
-              <span className="sm:hidden">Prev</span>
+              <span className="hidden sm:inline">{tp(prev.id, "title", prev.title)}</span>
+              <span className="sm:hidden">{t("prev")}</span>
             </Link>
             <Link
               to={`/projects/${next.id}`}
               data-testid="next-project-link"
               className="group flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-slate-400 hover:text-[#FF5E1A] transition-colors text-right"
             >
-              <span className="hidden sm:inline">{next.title}</span>
-              <span className="sm:hidden">Next</span>
+              <span className="hidden sm:inline">{tp(next.id, "title", next.title)}</span>
+              <span className="sm:hidden">{t("next")}</span>
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
