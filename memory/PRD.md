@@ -69,9 +69,16 @@
 - SEHATI case study rewritten per user's account: AWS forced Oracle upgrade as the trigger, outage risk, security vulnerabilities kept, JDK/Tomcat upgraded alongside, jQuery frontend deferred (needed more planning).
 - Email converted from Emergent-managed proxy to standard Resend SDK (RESEND_API_KEY/RESEND_FROM/OWNER_EMAIL env vars, empty key now). Works on AWS EC2 once user adds their own Resend API key. Graceful no-op in preview until key is set.
 
+## Implemented (2026-11-03, iteration 12)
+- BFLabs banner image (user-uploaded) applied to Middleblock + Yeosu projects.
+- Daeduk case study rewritten with user's details: vibration sensors, Hortonworks big data platform, Java Spring + Angular + TensorFlow RMSE model detecting deviation from normal operating mean, real-time dashboard alerts for factory employees. Tech stack updated (added Hortonworks, Vibration Sensors).
+- micubelogo upload did not arrive — MICUBE image unchanged, awaiting re-upload.
+- Email alert key card skipped by user — RESEND_API_KEY still empty; alerts remain paused but code is EC2-ready.
+
 ## Backlog
 - P1: User to revise Nerget + StarHub case study text (as requested).
-- P1: User to create Resend account + add RESEND_API_KEY secret for live email alerts (works on EC2 and Emergent).
+- P1: User to add RESEND_API_KEY secret for live email alerts.
+- P1: User to re-upload micubelogo for MICUBE AI project image.
 - P1: SEO meta/OG/JSON-LD + sitemap (farm-seo-setup skill).
 - P2: Admin page to view contact messages in-browser (GET /api/contact exists).
 
