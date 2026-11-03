@@ -58,8 +58,11 @@
 - AWS skills expanded: EC2, RDS, S3, Route53, CloudFront, Lambda, EKS & ECS, Load Balancer (plus Docker, Kubernetes+ArgoCD, Jenkins, GitHub Actions).
 - MICUBE AI project: "About MICUBE Solution" button linking to micube.co.kr/en/micube.
 
+## Implemented (2026-11-03, iteration 9)
+- Added 2 Compax Digital projects (15 total): LG U+ Nerget BSS Integration (links to lguplus.com/nerget/main?p=3) and StarHub Telecommunication Integration (links to starhub.com/personal.html), both with full case studies. Nerget reuses the real LG U+ banner image; StarHub uses a network equipment image (starhub.com blocks scraping). Counts updated everywhere; sitemap updated.
+
 ## Backlog
-- P0: No remaining placeholder images to replace (all projects have real logos/images).
+- P1: User to revise Nerget + StarHub case study text (as requested).
 - P1: SEO meta/OG/JSON-LD + sitemap (farm-seo-setup skill).
 - P2: Admin page to view contact messages in-browser (GET /api/contact exists).
 

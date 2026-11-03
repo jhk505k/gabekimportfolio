@@ -112,7 +112,7 @@ export const Hero = () => {
               data-testid="hero-projects-button"
               className="group flex items-center gap-2 bg-[#FF5E1A] text-[#090A0F] font-display font-bold text-sm px-7 py-3.5 rounded-full hover:bg-[#00F0FF] transition-colors"
             >
-              Explore 13 Projects
+              Explore 15 Projects
               <ArrowDown size={16} className="group-hover:translate-y-0.5 transition-transform" />
             </a>
             <a
@@ -160,7 +160,7 @@ export const Hero = () => {
                   <p className="font-display font-bold text-lg text-slate-100">Enterprise Systems Engineer</p>
                 </div>
                 <div className="text-right">
-                  <p className="font-display font-black text-3xl text-[#FF5E1A]">13</p>
+                  <p className="font-display font-black text-3xl text-[#FF5E1A]">15</p>
                   <p className="font-mono text-[10px] uppercase tracking-widest text-slate-400">Projects</p>
                 </div>
               </div>

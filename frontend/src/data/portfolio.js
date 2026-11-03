@@ -107,6 +107,32 @@ export const EXPERIENCE = [
 
 export const PROJECTS = [
   {
+    id: "nerget-integration",
+    title: "LG U+ Nerget BSS Integration",
+    company: "Compax Digital",
+    category: "Telecom BSS",
+    image: "/projects/lguplus.webp",
+    link: "https://www.lguplus.com/nerget/main?p=3",
+    description: "Integrated Compax Digital's enterprise BSS platform with LG U+'s Nerget system — handling subscriber management, billing and service provisioning flows between the two platforms using Java Spring (JSF & Hibernate JPA) and PostgreSQL.",
+    tech: ["Java Spring", "JSF", "Hibernate JPA", "PostgreSQL", "BSS"],
+    challenge: "LG U+'s Nerget platform and Compax's enterprise BSS each managed subscriber and billing data independently, requiring a robust integration layer to keep accounts, services and invoices synchronized without manual reconciliation.",
+    approach: "Built the integration layer in Java Spring with JSF front-end screens and a Hibernate JPA persistence layer over PostgreSQL, mapping Nerget's data models onto Compax's BSS entities and validating end-to-end subscriber, billing and provisioning flows in LG U+'s staging environment.",
+    outcome: "The integration went live connecting Compax's BSS with Nerget, enabling automated data flow for subscriber management and billing across both platforms.",
+  },
+  {
+    id: "starhub-integration",
+    title: "StarHub Telecommunication Integration",
+    company: "Compax Digital",
+    category: "Telecom BSS",
+    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=60",
+    link: "https://www.starhub.com/personal.html",
+    description: "Integrated Compax Digital's enterprise BSS platform with StarHub's telecommunication systems in Singapore, delivering subscriber, billing and service management flows using Java Spring (JSF & Hibernate JPA) and PostgreSQL.",
+    tech: ["Java Spring", "JSF", "Hibernate JPA", "PostgreSQL", "BSS"],
+    challenge: "StarHub, Singapore's major telco, needed Compax's BSS platform to interoperate with its internal telecommunication systems across subscriber onboarding, billing cycles and service provisioning — with strict data consistency requirements.",
+    approach: "Developed the integration services in Java Spring with a JSF interface layer and Hibernate JPA over PostgreSQL, coordinating closely with StarHub's engineering teams through joint testing cycles to certify each integration flow.",
+    outcome: "Successfully delivered the StarHub integration on schedule, extending Compax's BSS footprint into the Southeast Asian telecom market.",
+  },
+  {
     id: "hiddentag",
     title: "HiddenTag Global Platform",
     company: "CK&B",
