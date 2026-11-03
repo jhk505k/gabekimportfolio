@@ -1,144 +1,132 @@
 import { useState } from "react";
-import axios from "axios";
 import { toast } from "sonner";
 import { Reveal, SectionHeading } from "./Reveal";
 import { LINKS } from "../data/portfolio";
-import { Linkedin, Github, Mail, Phone, MapPin, Send, Loader2 } from "lucide-react";
+import { Linkedin, Github, Mail, Phone, MapPin, Copy, ExternalLink } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
-
 export const Contact = () => {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [sending, setSending] = useState(false);
   const { t } = useLanguage();
+  const [copied, setCopied] = useState(null);
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    setSending(true);
+  const copyToClipboard = async (text, key) => {
     try {
-      await axios.post(`${API}/contact`, form);
-      toast.success(t("toast_success"));
-      setForm({ name: "", email: "", message: "" });
-    } catch (err) {
-      toast.error(t("toast_error"));
-    } finally {
-      setSending(false);
+      await navigator.clipboard.writeText(text);
+    } catch {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
     }
+    setCopied(key);
+    toast.success(t("copied"));
+    setTimeout(() => setCopied(null), 2000);
   };
 
-  const set = (key) => (e) => setForm({ ...form, [key]: e.target.value });
+  const ITEMS = [
+    {
+      icon: Mail,
+      label: LINKS.email,
+      action: { type: "mailto", value: `mailto:${LINKS.email}` },
+      hint: t("email_hint"),
+      testid: "contact-email-link",
+    },
+    {
+      icon: Phone,
+      label: LINKS.phone,
+      action: { type: "copy", value: LINKS.phone, key: "phone" },
+      hint: t("copy_hint"),
+      testid: "contact-phone-copy",
+    },
+    {
+      icon: MapPin,
+      label: LINKS.location,
+      action: null,
+      hint: null,
+      testid: "contact-location",
+    },
+    {
+      icon: Linkedin,
+      label: "linkedin.com/in/ji-kim-5179495",
+      action: { type: "copy", value: LINKS.linkedin, key: "linkedin" },
+      hint: t("copy_hint"),
+      testid: "contact-linkedin-copy",
+    },
+    {
+      icon: Github,
+      label: "github.com/jhk505k",
+      action: { type: "copy", value: LINKS.github, key: "github" },
+      hint: t("copy_hint"),
+      testid: "contact-github-copy",
+    },
+  ];
+
+  const cardClass = "group flex items-center gap-4 border border-white/10 rounded-xl bg-[#161924] px-5 py-4 hover:border-[#FF5E1A]/50 transition-colors text-left w-full";
 
   return (
     <section id="contact" data-testid="contact-section" className="bg-[#11131A] border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 py-20 lg:py-28">
         <SectionHeading index="06" title={t("contact_title")} sub={t("contact_sub")} />
-        <div className="grid lg:grid-cols-12 gap-10">
-          <Reveal className="lg:col-span-5" delay={0.1}>
-            <div className="flex flex-col gap-4">
-              {[
-                { icon: Mail, label: LINKS.email, href: `mailto:${LINKS.email}`, testid: "contact-email-link" },
-                { icon: Phone, label: LINKS.phone, href: `tel:${LINKS.phone.replace(/[^0-9]/g, "")}`, testid: "contact-phone-link" },
-                { icon: MapPin, label: LINKS.location, href: null, testid: "contact-location" },
-                { icon: Linkedin, label: "linkedin.com/in/ji-kim-5179495", href: LINKS.linkedin, testid: "contact-linkedin-link" },
-                { icon: Github, label: "github.com/jhk505k", href: LINKS.github, testid: "contact-github-link" },
-              ].map(({ icon: Icon, label, href, testid }) =>
-                href ? (
-                  <a
-                    key={testid}
-                    href={href}
-                    target={href.startsWith("http") ? "_blank" : undefined}
-                    rel="noopener noreferrer"
-                    data-testid={testid}
-                    className="group flex items-center gap-4 border border-white/10 rounded-xl bg-[#161924] px-5 py-4 hover:border-[#FF5E1A]/50 transition-colors"
-                  >
-                    <span className="p-2 rounded-lg bg-[#FF5E1A]/10 text-[#FF5E1A] group-hover:bg-[#00F0FF]/10 group-hover:text-[#00F0FF] transition-colors">
-                      <Icon size={18} />
-                    </span>
-                    <span className="font-mono text-sm text-slate-300 group-hover:text-slate-100 transition-colors break-all">
+        <Reveal delay={0.1}>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {ITEMS.map(({ icon: Icon, label, action, hint, testid }) => {
+              const inner = (
+                <>
+                  <span className="p-2 rounded-lg bg-[#FF5E1A]/10 text-[#FF5E1A] group-hover:bg-[#00F0FF]/10 group-hover:text-[#00F0FF] transition-colors shrink-0">
+                    <Icon size={18} />
+                  </span>
+                  <span className="flex-1 min-w-0">
+                    <span className="block font-mono text-sm text-slate-300 group-hover:text-slate-100 transition-colors break-all">
                       {label}
                     </span>
-                  </a>
-                ) : (
-                  <div
-                    key={testid}
-                    data-testid={testid}
-                    className="flex items-center gap-4 border border-white/10 rounded-xl bg-[#161924] px-5 py-4"
-                  >
-                    <span className="p-2 rounded-lg bg-[#FF5E1A]/10 text-[#FF5E1A]">
-                      <Icon size={18} />
+                    {hint && (
+                      <span className="block mt-1 font-mono text-[10px] uppercase tracking-widest text-slate-500 group-hover:text-[#00F0FF] transition-colors">
+                        {copied === action?.key ? `✓ ${t("copied")}` : hint}
+                      </span>
+                    )}
+                  </span>
+                  {action?.type === "copy" && (
+                    <span className={`shrink-0 transition-colors ${copied === action.key ? "text-[#00F0FF]" : "text-slate-600 group-hover:text-[#FF5E1A]"}`}>
+                      <Copy size={15} />
                     </span>
-                    <span className="font-mono text-sm text-slate-300">{label}</span>
-                  </div>
-                )
-              )}
-            </div>
-          </Reveal>
+                  )}
+                  {action?.type === "mailto" && (
+                    <span className="shrink-0 text-slate-600 group-hover:text-[#FF5E1A] transition-colors">
+                      <ExternalLink size={15} />
+                    </span>
+                  )}
+                </>
+              );
 
-          <Reveal className="lg:col-span-7" delay={0.2}>
-            <form
-              onSubmit={onSubmit}
-              data-testid="contact-form"
-              className="border border-white/10 rounded-xl bg-[#161924] p-6 sm:p-8 flex flex-col gap-5"
-            >
-              <div className="grid sm:grid-cols-2 gap-5">
-                <div>
-                  <label htmlFor="contact-name" className="block font-mono text-[10px] uppercase tracking-[0.3em] text-slate-500 mb-2">
-                    {t("name_label")}
-                  </label>
-                  <input
-                    id="contact-name"
-                    data-testid="contact-name-input"
-                    required
-                    value={form.name}
-                    onChange={set("name")}
-                    placeholder={t("name_ph")}
-                    className="w-full bg-[#090A0F] border border-white/10 rounded-lg px-4 py-3 text-sm text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-[#FF5E1A] transition-colors"
-                  />
+              if (action?.type === "mailto") {
+                return (
+                  <a key={testid} href={action.value} data-testid={testid} className={cardClass}>
+                    {inner}
+                  </a>
+                );
+              }
+              if (action?.type === "copy") {
+                return (
+                  <button
+                    key={testid}
+                    onClick={() => copyToClipboard(action.value, action.key)}
+                    data-testid={testid}
+                    className={cardClass}
+                  >
+                    {inner}
+                  </button>
+                );
+              }
+              return (
+                <div key={testid} data-testid={testid} className={cardClass + " cursor-default hover:border-white/10"}>
+                  {inner}
                 </div>
-                <div>
-                  <label htmlFor="contact-email" className="block font-mono text-[10px] uppercase tracking-[0.3em] text-slate-500 mb-2">
-                    {t("email_label")}
-                  </label>
-                  <input
-                    id="contact-email"
-                    type="email"
-                    data-testid="contact-email-input"
-                    required
-                    value={form.email}
-                    onChange={set("email")}
-                    placeholder={t("email_ph")}
-                    className="w-full bg-[#090A0F] border border-white/10 rounded-lg px-4 py-3 text-sm text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-[#FF5E1A] transition-colors"
-                  />
-                </div>
-              </div>
-              <div>
-                <label htmlFor="contact-message" className="block font-mono text-[10px] uppercase tracking-[0.3em] text-slate-500 mb-2">
-                  {t("message_label")}
-                </label>
-                <textarea
-                  id="contact-message"
-                  data-testid="contact-message-input"
-                  required
-                  rows={5}
-                  value={form.message}
-                  onChange={set("message")}
-                  placeholder={t("msg_ph")}
-                  className="w-full bg-[#090A0F] border border-white/10 rounded-lg px-4 py-3 text-sm text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-[#FF5E1A] transition-colors resize-none"
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={sending}
-                data-testid="contact-submit-button"
-                className="group self-start flex items-center gap-2 bg-[#FF5E1A] text-[#090A0F] font-display font-bold text-sm px-8 py-3.5 rounded-full hover:bg-[#00F0FF] disabled:opacity-60 transition-colors"
-              >
-                {sending ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} className="group-hover:translate-x-0.5 transition-transform" />}
-                {sending ? t("sending") : t("send")}
-              </button>
-            </form>
-          </Reveal>
-        </div>
+              );
+            })}
+          </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -78,9 +78,11 @@
 ## Implemented (2026-11-03, iteration 13)
 - Full trilingual support (English default → Korean → Chinese): globe language switcher in nav (desktop + mobile), persisted in localStorage, sets document lang. All UI strings, section content, 6 experience roles, and all 15 projects (title/category/description/challenge/approach/outcome) translated in src/i18n/. English fallback for anything untranslated.
 
+## Implemented (2026-11-03, iteration 14)
+- Contact form and email alerts REMOVED per user request (no Resend dependency anywhere — EC2-simple). Email card is now a mailto: link (opens Outlook/Thunderbird/etc). Phone, LinkedIn, GitHub are click-to-copy with "Copied to clipboard" toast (works in all 3 languages). resend package uninstalled; backend contact POST still stores messages.
+
 ## Backlog
 - P1: User to revise Nerget + StarHub case study text (as requested).
-- P1: User to add RESEND_API_KEY secret for live email alerts.
 - MICUBE logo (user-uploaded) applied to MICUBE AI project — all 15 projects now have real brand imagery.
 - P1: SEO meta/OG/JSON-LD + sitemap (farm-seo-setup skill).
 - P2: Admin page to view contact messages in-browser (GET /api/contact exists).
