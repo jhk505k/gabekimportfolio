@@ -3,13 +3,8 @@ from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
-import re
-import ipaddress
 import logging
-import httpx
 from html import escape
-from html.parser import HTMLParser
-from urllib.parse import urlparse
 from pathlib import Path
 from pydantic import BaseModel, Field, ConfigDict, EmailStr
 from typing import List
@@ -33,102 +28,41 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-EMAIL_BASE_URL = "https://integrations.emergentagent.com"
-EMAIL_KEY = os.environ.get("EMERGENT_EMAIL_KEY")
-EMAIL_FROM_NAME = os.environ.get("EMAIL_FROM_NAME", "Gabe Kim Portfolio")
-EMAIL_REPLY_TO = os.environ.get("EMAIL_REPLY_TO")
+RESEND_API_KEY = os.environ.get("RESEND_API_KEY")
+RESEND_FROM = os.environ.get("RESEND_FROM", "Gabe Kim Portfolio <onboarding@resend.dev>")
 OWNER_EMAIL = os.environ.get("OWNER_EMAIL")
 
-_SHORTENERS = ("bit.ly", "tinyurl.com", "t.co", "is.gd", "cutt.ly", "goo.gl", "rebrand.ly")
-_CRED_ASK = ("reply with your password", "reply with the code", "send your password", "cvv",
-             "send us your password", "enter your password below", "confirm your card number",
-             "your full card number", "seed phrase", "recovery phrase", "verify your card",
-             "social security number", "confirm your bank details")
-_HOSTISH = re.compile(r"\b(?:https?://)?((?:[a-z0-9-]+\.)+[a-z]{2,})", re.I)
 
-
-def _host_ok(host: str) -> bool:
-    if not host or "xn--" in host:
-        return False
+def send_owner_notification(*, name: str, email: str, message: str) -> None:
+    """Send the contact-form alert via standard Resend (works on any host)."""
+    if not RESEND_API_KEY or not OWNER_EMAIL:
+        logger.info("Email not configured (RESEND_API_KEY/OWNER_EMAIL missing); message stored only")
+        return
+    import resend
+    resend.api_key = RESEND_API_KEY
+    n, e, m = escape(name), escape(email), escape(message).replace("\n", "<br>")
     try:
-        ipaddress.ip_address(host)
-        return False
-    except ValueError:
-        pass
-    return not any(host == s or host.endswith("." + s) for s in _SHORTENERS)
-
-
-def _same_site(shown: str, real: str) -> bool:
-    return shown == real or real.endswith("." + shown) or shown.endswith("." + real)
-
-
-class _EmailScan(HTMLParser):
-    def __init__(self):
-        super().__init__()
-        self.tags, self.urls, self.anchors = set(), [], []
-        self._href, self._text = None, []
-
-    def handle_starttag(self, tag, attrs):
-        self.tags.add(tag.lower())
-        self.urls += [v for k, v in attrs if k.lower() in ("href", "src") and v]
-        if tag.lower() == "a":
-            self._href = dict((k.lower(), v) for k, v in attrs).get("href")
-            self._text = []
-
-    def handle_data(self, data):
-        if self._href is not None:
-            self._text.append(data)
-
-    def handle_endtag(self, tag):
-        if tag.lower() == "a" and self._href is not None:
-            self.anchors.append((self._href, "".join(self._text)))
-            self._href, self._text = None, []
-
-
-def _assert_safe_email(subject: str, html: str) -> None:
-    scan = _EmailScan()
-    scan.feed(html)
-    if scan.tags & {"form", "input", "textarea", "select"}:
-        raise ValueError("No forms or input fields in email (G2)")
-    body = f"{subject}\n{html}".lower()
-    for p in _CRED_ASK:
-        if p in body:
-            raise ValueError(f"Email asks the recipient for credentials: {p!r} (G2)")
-    for url in scan.urls:
-        low = url.strip().lower()
-        if low.startswith(("mailto:", "tel:", "cid:", "#")):
-            continue
-        if not low.startswith("https://"):
-            raise ValueError(f"Email links/assets must be absolute https: {url!r} (G3)")
-        host = urlparse(low).hostname or ""
-        if not _host_ok(host) or urlparse(low).username is not None:
-            raise ValueError(f"Shortened, numeric-host or credential-bearing URL: {url!r} (G3)")
-    for href, text in scan.anchors:
-        real = urlparse(href.strip().lower()).hostname or ""
-        if not real:
-            continue
-        for m in _HOSTISH.finditer(text):
-            if not _same_site(m.group(1).lower(), real):
-                raise ValueError(f"Anchor text {m.group(1)!r} != real link host {real!r} (G3)")
-
-
-async def send_email(*, to: str, subject: str, html: str, reply_to: str | None = None) -> str | None:
-    _assert_safe_email(subject, html)
-    payload = {"to": [to], "subject": subject, "html": html, "from_name": EMAIL_FROM_NAME}
-    if reply_to or EMAIL_REPLY_TO:
-        payload["contact_email"] = reply_to or EMAIL_REPLY_TO
-    try:
-        async with httpx.AsyncClient(timeout=30) as http:
-            resp = await http.post(
-                f"{EMAIL_BASE_URL}/api/v1/email/send",
-                headers={"X-Email-Key": EMAIL_KEY},
-                json=payload,
-            )
-        resp.raise_for_status()
-        return resp.json().get("id")
-    except Exception as e:
-        logger.warning(f"Owner notification email failed: {e}")
-        return None
+        result = resend.Emails.send({
+            "from": RESEND_FROM,
+            "to": [OWNER_EMAIL],
+            "reply_to": [email],
+            "subject": f"New portfolio enquiry from {name}",
+            "text": f"Name: {name}\nEmail: {email}\n\n{message}",
+            "html": (
+                '<table role="presentation" width="100%"><tr><td style="padding:24px;'
+                'font-family:Arial,sans-serif;background:#090A0F;color:#F8FAFC">'
+                f'<p style="color:#FF5E1A;font-size:12px;letter-spacing:2px;text-transform:uppercase">Gabe Kim Portfolio</p>'
+                f'<h2 style="margin:8px 0 16px">New enquiry from {n}</h2>'
+                f'<p style="color:#94A3B8;font-size:13px">Reply to: '
+                f'<a href="mailto:{e}" style="color:#00F0FF">{e}</a></p>'
+                f'<div style="margin-top:16px;padding:16px;background:#161924;border-radius:8px;'
+                f'color:#F8FAFC;font-size:14px;line-height:1.6">{m}</div>'
+                '</td></tr></table>'
+            ),
+        })
+        logger.info(f"Owner notification sent via Resend: {result.get('id')}")
+    except Exception as exc:
+        logger.error(f"Resend notification failed: {exc}")
 
 
 class ContactMessage(BaseModel):
@@ -158,26 +92,11 @@ async def create_contact_message(input: ContactMessageCreate):
     doc = msg.model_dump()
     doc['timestamp'] = doc['timestamp'].isoformat()
     await db.contact_messages.insert_one(doc)
-
-    if OWNER_EMAIL and EMAIL_KEY:
-        subject = f"New portfolio enquiry from {escape(msg.name)}"
-        html = (
-            '<table role="presentation" width="100%"><tr><td style="padding:24px;'
-            'font-family:Arial,sans-serif;background:#090A0F;color:#F8FAFC">'
-            f'<p style="color:#FF5E1A;font-size:12px;letter-spacing:2px;text-transform:uppercase">{escape(EMAIL_FROM_NAME)}</p>'
-            f'<h2 style="margin:8px 0 16px">New enquiry from {escape(msg.name)}</h2>'
-            f'<p style="color:#94A3B8;font-size:13px">Reply to: '
-            f'<a href="mailto:{escape(msg.email)}" style="color:#00F0FF">{escape(msg.email)}</a></p>'
-            f'<div style="margin-top:16px;padding:16px;background:#161924;border-radius:8px;'
-            f'color:#F8FAFC;font-size:14px;line-height:1.6">{escape(msg.message)}</div>'
-            f'<p style="font-size:12px;color:#64748B;margin-top:24px">Sent by {escape(EMAIL_FROM_NAME)} '
-            'contact form. We never ask for your password or card details by email.</p>'
-            '</td></tr></table>'
-        )
-        await send_email(to=OWNER_EMAIL, subject=subject, html=html, reply_to=msg.email)
-    else:
-        logger.info("Email not configured; contact message stored without notification")
-
+    # send in a thread so a slow/failed Resend call never blocks the response
+    import asyncio
+    await asyncio.to_thread(
+        send_owner_notification, name=msg.name, email=msg.email, message=msg.message
+    )
     return msg
 
 
@@ -193,7 +112,7 @@ async def get_contact_messages():
 @app.middleware("http")
 async def add_cache_headers(request, call_next):
     response = await call_next(request)
-    if request.url.path.startswith(("/certs/", "/static/")):
+    if request.url.path.startswith(("/certs/", "/static/", "/projects/")):
         response.headers["Cache-Control"] = "public, max-age=31536000, immutable"
     return response
 

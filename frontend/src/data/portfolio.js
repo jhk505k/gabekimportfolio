@@ -121,7 +121,7 @@ export const PROJECTS = [
   },
   {
     id: "starhub-integration",
-    title: "StarHub Telecommunication Integration",
+    title: "StarHub BSS Integration",
     company: "Compax Digital",
     category: "Telecom BSS",
     image: "/projects/starhub-logo.webp",
@@ -154,9 +154,9 @@ export const PROJECTS = [
     link: "https://www.sehati.gov.bh/",
     description: "Modernized the SEHATI Bahrain National Health Insurance System on AWS — upgrading JDK 7 → 8, Tomcat 7 → 9, and Oracle RDS 12c → 19c for the Kingdom of Bahrain's national health insurance platform.",
     tech: ["Java", "AWS", "Tomcat", "Oracle RDS"],
-    challenge: "Bahrain's national health insurance system was running on aging infrastructure — JDK 7, Tomcat 7 and Oracle 12c — accumulating security exposure and maintenance risk for a platform serving the entire country.",
-    approach: "Led the modernization on AWS: upgraded the runtime from JDK 7 to 8, the application server from Tomcat 7 to 9, and the database from Oracle RDS 12c to 19c, validating every layer of the stack in staged environments before production cutover.",
-    outcome: "SEHATI relaunched on a modern, supported stack on AWS — the national health insurance system now runs on current Java, Tomcat and Oracle versions with improved security and maintainability.",
+    challenge: "Bahrain's national health insurance system was running on aging infrastructure — JDK 7, Tomcat 7 and Oracle 12c — accumulating security vulnerabilities and maintenance risk for a platform serving the entire country. The urgency escalated when AWS announced a forced upgrade of all older Oracle database versions to newer releases: our LG CNS manager recognized that an unmanaged, AWS-imposed database upgrade could break compatibility with the production system and cause a national outage. On top of the database risk, the legacy stack carried known security vulnerabilities that needed addressing.",
+    approach: "Rather than let AWS force the Oracle upgrade on its own schedule, we took control: planned and executed a staged migration of Oracle RDS 12c → 19c with full compatibility testing against production workloads, and upgraded the runtime from JDK 7 to 8 and the application server from Tomcat 7 to 9 in the same program. A JavaScript-to-jQuery frontend modernization was scoped but deliberately deferred — it required more development time and planning, and the Oracle database was the critical issue driving the timeline.",
+    outcome: "SEHATI migrated to Oracle 19c, JDK 8 and Tomcat 9 on AWS ahead of AWS's forced upgrade — with zero production outage. The national health insurance system now runs on supported, secure versions of its core stack, with the frontend modernization properly planned as a separate follow-up project.",
   },
   {
     id: "gspostbox",

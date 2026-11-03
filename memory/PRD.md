@@ -64,8 +64,14 @@
 ## Implemented (2026-11-03, iteration 10)
 - User-uploaded logos applied: nerget logo → Nerget project; StarHub logo → StarHub project; LG U+ logo → LG U+ Digital Catalog project.
 
+## Implemented (2026-11-03, iteration 11)
+- StarHub project renamed to "StarHub BSS Integration".
+- SEHATI case study rewritten per user's account: AWS forced Oracle upgrade as the trigger, outage risk, security vulnerabilities kept, JDK/Tomcat upgraded alongside, jQuery frontend deferred (needed more planning).
+- Email converted from Emergent-managed proxy to standard Resend SDK (RESEND_API_KEY/RESEND_FROM/OWNER_EMAIL env vars, empty key now). Works on AWS EC2 once user adds their own Resend API key. Graceful no-op in preview until key is set.
+
 ## Backlog
 - P1: User to revise Nerget + StarHub case study text (as requested).
+- P1: User to create Resend account + add RESEND_API_KEY secret for live email alerts (works on EC2 and Emergent).
 - P1: SEO meta/OG/JSON-LD + sitemap (farm-seo-setup skill).
 - P2: Admin page to view contact messages in-browser (GET /api/contact exists).
 
