@@ -81,6 +81,9 @@
 ## Implemented (2026-11-03, iteration 14)
 - Contact form and email alerts REMOVED per user request (no Resend dependency anywhere — EC2-simple). Email card is now a mailto: link (opens Outlook/Thunderbird/etc). Phone, LinkedIn, GitHub are click-to-copy with "Copied to clipboard" toast (works in all 3 languages). resend package uninstalled; backend contact POST still stores messages.
 
+## Implemented (2026-11-03, iteration 15)
+- Fixed EC2 deployment blocker: removed emergentintegrations + litellm (platform-internal packages) from requirements.txt. Fresh-venv install verified; backend starts cleanly off-platform. requirements.txt is now pure public PyPI.
+
 ## Backlog
 - P1: User to revise Nerget + StarHub case study text (as requested).
 - MICUBE logo (user-uploaded) applied to MICUBE AI project — all 15 projects now have real brand imagery.
