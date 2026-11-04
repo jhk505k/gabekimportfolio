@@ -90,6 +90,9 @@
 ## Implemented (2026-11-03, iteration 17)
 - Fixed Cloudflare Pages build error "No project found in /opt/buildhome/repo": added root /app/package.json with build script delegating into frontend/ (monorepo had no root package.json). Verified by testing agent: root yarn build produces frontend/build. Cloudflare settings: build cmd `yarn build`, output `frontend/build`, root dir blank or `frontend`.
 
+## Implemented (2026-11-03, iteration 18)
+- Fixed Cloudflare deploy hang: user had put `serve -s build` (blocking server) in build command — corrected. Updated frontend/wrangler.toml to name=gabekimportfolio + pages_build_output_dir=./build. Advised: Pages settings build cmd `yarn build`, output `frontend/build`, EMPTY deploy command, custom domain gabekimportfolio.dev (user had mistakenly used resume. subdomain).
+
 ## Backlog
 - P1: User to revise Nerget + StarHub case study text (as requested).
 - P1: User deploying frontend to Cloudflare Pages at gabekimportfolio.dev.

@@ -1,7 +1,3 @@
-# Cloudflare Pages / Workers build config (wrangler 4.x)
-name = "gabe-kim-portfolio"
+name = "gabekimportfolio"
+pages_build_output_dir = "./build"
 compatibility_date = "2026-11-03"
-
-# Static asset output produced by `yarn build` (craco build -> build/)
-[assets]
-directory = "./build"
