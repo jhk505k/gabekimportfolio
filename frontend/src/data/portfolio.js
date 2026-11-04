@@ -314,13 +314,13 @@ export const EDUCATION = [
   {
     degree: "Master of Science — Electrical & Computer Engineering",
     school: "Georgia Institute of Technology",
-    location: "Columbus, GA & Atlanta, GA",
+    location: "Atlanta, GA",
     detail: "Focus: Telecommunication and Computer Systems / Software",
   },
   {
     degree: "Bachelor of Science — Electrical Engineering",
     school: "Georgia Institute of Technology",
-    location: "Columbus, GA & Atlanta, GA",
+    location: "Atlanta, GA",
     detail: "",
   },
 ];
