@@ -5,7 +5,7 @@ export const LINKS = {
   github: "https://github.com/jhk505k",
   email: "jhk505ko@gmail.com",
   phone: "(706) 304-1620",
-  location: "Atlanta, GA",
+  location: "Columbus, GA & Atlanta, GA",
   resume: "/Gabe_Kim_Resume.pdf",
 };
 
@@ -314,13 +314,13 @@ export const EDUCATION = [
   {
     degree: "Master of Science — Electrical & Computer Engineering",
     school: "Georgia Institute of Technology",
-    location: "Atlanta, GA",
+    location: "Columbus, GA & Atlanta, GA",
     detail: "Focus: Telecommunication and Computer Systems / Software",
   },
   {
     degree: "Bachelor of Science — Electrical Engineering",
     school: "Georgia Institute of Technology",
-    location: "Atlanta, GA",
+    location: "Columbus, GA & Atlanta, GA",
     detail: "",
   },
 ];
