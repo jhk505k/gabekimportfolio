@@ -87,6 +87,9 @@
 ## Implemented (2026-11-03, iteration 16)
 - Cloudflare Pages deploy prep: added frontend/wrangler.toml (assets dir = build) + public/_redirects (SPA fallback so /projects/... routes work). Domain set to gabekimportfolio.dev in SEO meta/robots/sitemap. Confirmed frontend is 100% static (no backend API calls — contact is mailto/clipboard), so it deploys to Pages with zero API config. Backend/MongoDB stay separate (EC2 or Emergent).
 
+## Implemented (2026-11-03, iteration 17)
+- Fixed Cloudflare Pages build error "No project found in /opt/buildhome/repo": added root /app/package.json with build script delegating into frontend/ (monorepo had no root package.json). Verified by testing agent: root yarn build produces frontend/build. Cloudflare settings: build cmd `yarn build`, output `frontend/build`, root dir blank or `frontend`.
+
 ## Backlog
 - P1: User to revise Nerget + StarHub case study text (as requested).
 - P1: User deploying frontend to Cloudflare Pages at gabekimportfolio.dev.

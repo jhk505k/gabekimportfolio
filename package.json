@@ -1,0 +1,9 @@
+{
+  "name": "gabe-kim-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Gabe Kim portfolio — monorepo root. The deployable frontend lives in frontend/.",
+  "scripts": {
+    "build": "yarn --cwd frontend install && yarn --cwd frontend build"
+  }
+}
