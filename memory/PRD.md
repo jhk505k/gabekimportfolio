@@ -96,9 +96,12 @@
 ## Implemented (2026-11-03, iteration 19)
 - Diagnosed Cloudflare deploy auth error (code 10000): caused by a wrangler deploy command with an under-scoped API token. Solution: user does NOT need any deploy command — Git-connected Pages auto-builds `yarn build` and serves frontend/build. Advised removing the wrangler deploy command entirely and leaving Deploy command empty.
 
+## Implemented (2026-11-03, iteration 20)
+- Diagnosed "Hello World" on Cloudflare: build/index.html is correct (real app, JS bundle, _redirects, all assets) — issue is Cloudflare Pages output-directory setting mismatch, NOT a missing file. Added root `deploy` script (build + wrangler pages deploy ./build --project-name=gabekimportfolio) for CLI deploys. wrangler.toml set to gabekimportfolio + pages_build_output_dir=./build.
+
 ## Backlog
 - P1: User to revise Nerget + StarHub case study text (as requested).
-- P1: User deploying frontend to Cloudflare Pages at gabekimportfolio.dev.
+- P1: User deploying frontend to Cloudflare Pages at gabekimportfolio.dev — must set Build output directory to `frontend/build` in Pages settings.
 - MICUBE logo (user-uploaded) applied to MICUBE AI project — all 15 projects now have real brand imagery.
 - P1: SEO meta/OG/JSON-LD + sitemap (farm-seo-setup skill).
 - P2: Admin page to view contact messages in-browser (GET /api/contact exists).
