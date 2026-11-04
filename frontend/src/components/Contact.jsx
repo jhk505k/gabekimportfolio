@@ -49,17 +49,17 @@ export const Contact = () => {
     },
     {
       icon: Linkedin,
-      label: "linkedin.com/in/ji-kim-5179495",
-      action: { type: "copy", value: LINKS.linkedin, key: "linkedin" },
-      hint: t("copy_hint"),
-      testid: "contact-linkedin-copy",
+      label: "LinkedIn",
+      action: { type: "link", value: LINKS.linkedin },
+      hint: t("visit_profile"),
+      testid: "contact-linkedin-link",
     },
     {
       icon: Github,
-      label: "github.com/jhk505k",
-      action: { type: "copy", value: LINKS.github, key: "github" },
-      hint: t("copy_hint"),
-      testid: "contact-github-copy",
+      label: "GitHub",
+      action: { type: "link", value: LINKS.github },
+      hint: t("visit_profile"),
+      testid: "contact-github-link",
     },
   ];
 
@@ -92,7 +92,7 @@ export const Contact = () => {
                       <Copy size={15} />
                     </span>
                   )}
-                  {action?.type === "mailto" && (
+                  {(action?.type === "mailto" || action?.type === "link") && (
                     <span className="shrink-0 text-slate-600 group-hover:text-[#FF5E1A] transition-colors">
                       <ExternalLink size={15} />
                     </span>
@@ -103,6 +103,20 @@ export const Contact = () => {
               if (action?.type === "mailto") {
                 return (
                   <a key={testid} href={action.value} data-testid={testid} className={cardClass}>
+                    {inner}
+                  </a>
+                );
+              }
+              if (action?.type === "link") {
+                return (
+                  <a
+                    key={testid}
+                    href={action.value}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-testid={testid}
+                    className={cardClass}
+                  >
                     {inner}
                   </a>
                 );

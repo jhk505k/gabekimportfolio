@@ -48,7 +48,7 @@ export const Footer = () => {
           </a>
         </div>
         <p className="font-mono text-[10px] uppercase tracking-widest text-slate-600" data-testid="footer-copyright">
-          © {new Date().getFullYear()} Gabe Kim · Columbus, GA
+          © {new Date().getFullYear()} Gabe Kim · Atlanta, GA
         </p>
       </div>
     </footer>

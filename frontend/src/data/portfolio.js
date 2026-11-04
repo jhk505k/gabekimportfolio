@@ -5,7 +5,7 @@ export const LINKS = {
   github: "https://github.com/jhk505k",
   email: "jhk505ko@gmail.com",
   phone: "(706) 304-1620",
-  location: "Columbus, GA",
+  location: "Atlanta, GA",
   resume: "/Gabe_Kim_Resume.pdf",
 };
 
