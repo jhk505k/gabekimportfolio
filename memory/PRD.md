@@ -101,7 +101,7 @@
 
 ## Backlog
 - P1: User to revise Nerget + StarHub case study text (as requested).
-- P1: User deploying frontend to Cloudflare Pages at gabekimportfolio.dev — must set Build output directory to `frontend/build` in Pages settings.
+- P1: User deploying frontend to Cloudflare Pages at gabekimportfolio.dev — CORRECT settings: Root directory=`frontend`, Build command=`yarn build`, Build output directory=`build`, Deploy command=`npx wrangler pages deploy ./build --project-name=gabekimportfolio` + CLOUDFLARE_API_TOKEN env var with Pages Edit permission. (Earlier advice of blank root + frontend/build output was wrong and corrected.)
 - MICUBE logo (user-uploaded) applied to MICUBE AI project — all 15 projects now have real brand imagery.
 - P1: SEO meta/OG/JSON-LD + sitemap (farm-seo-setup skill).
 - P2: Admin page to view contact messages in-browser (GET /api/contact exists).
