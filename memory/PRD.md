@@ -93,6 +93,9 @@
 ## Implemented (2026-11-03, iteration 18)
 - Fixed Cloudflare deploy hang: user had put `serve -s build` (blocking server) in build command — corrected. Updated frontend/wrangler.toml to name=gabekimportfolio + pages_build_output_dir=./build. Advised: Pages settings build cmd `yarn build`, output `frontend/build`, EMPTY deploy command, custom domain gabekimportfolio.dev (user had mistakenly used resume. subdomain).
 
+## Implemented (2026-11-03, iteration 19)
+- Diagnosed Cloudflare deploy auth error (code 10000): caused by a wrangler deploy command with an under-scoped API token. Solution: user does NOT need any deploy command — Git-connected Pages auto-builds `yarn build` and serves frontend/build. Advised removing the wrangler deploy command entirely and leaving Deploy command empty.
+
 ## Backlog
 - P1: User to revise Nerget + StarHub case study text (as requested).
 - P1: User deploying frontend to Cloudflare Pages at gabekimportfolio.dev.

@@ -1,3 +1,7 @@
+# NOTE: This file is only needed if you deploy with `wrangler pages deploy`.
+# For the normal Git-connected Cloudflare Pages flow (recommended), you do NOT
+# need this file or any deploy command — Pages builds `yarn build` and serves
+# frontend/build automatically. Keep Deploy command EMPTY in project settings.
 name = "gabekimportfolio"
 pages_build_output_dir = "./build"
 compatibility_date = "2026-11-03"
