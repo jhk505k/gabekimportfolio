@@ -9,6 +9,7 @@ import { Marquee } from "@/components/Marquee";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 
 const About = lazy(() => import("@/components/About").then((m) => ({ default: m.About })));
+const GSLab = lazy(() => import("@/components/GSLab").then((m) => ({ default: m.GSLab })));
 const Skills = lazy(() => import("@/components/Skills").then((m) => ({ default: m.Skills })));
 const Experience = lazy(() => import("@/components/Experience").then((m) => ({ default: m.Experience })));
 const Projects = lazy(() => import("@/components/Projects").then((m) => ({ default: m.Projects })));
@@ -25,6 +26,7 @@ const Home = () => (
       <Marquee />
       <Suspense fallback={<div className="min-h-screen" />}>
         <About />
+        <GSLab />
         <Skills />
         <Experience />
         <Projects />

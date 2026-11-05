@@ -105,9 +105,13 @@
 - Contact: LinkedIn + GitHub cards now clean link cards (label "LinkedIn"/"GitHub", "View profile" hint, no URL shown, open profile in new tab). Email=mailto, phone=copy-to-clipboard. Works in all 3 languages.
 - User successfully deployed to Cloudflare Pages: https://gabekimportfolio.pages.dev/ (wants Emergent publish taken down).
 
+## Implemented (2026-11-05, iteration 22)
+- GSLAB LLC promotion section added after About: Founder badge, "web systems that turn traffic into revenue" headline, description from gslab.engineer, GSLAB emblem (user's logo, webp), stats (99.99% uptime, <2s load, 5+ hrs saved), CTAs linking to gslab.engineer + #pricing. Fully translated EN/KO/ZH. Links to gslab.engineer.
+
 ## Backlog
 - P1: User to revise Nerget + StarHub case study text (as requested).
 - P1: Take down Emergent publish (user managing Cloudflare deploy now).
+- P1: Revoke leaked Cloudflare API token from deploy.yml git history.
 - P1: User deploying frontend to Cloudflare Pages at gabekimportfolio.dev — CORRECT settings: Root directory=`frontend`, Build command=`yarn build`, Build output directory=`build`, Deploy command=`npx wrangler pages deploy ./build --project-name=gabekimportfolio` + CLOUDFLARE_API_TOKEN env var with Pages Edit permission. (Earlier advice of blank root + frontend/build output was wrong and corrected.)
 - MICUBE logo (user-uploaded) applied to MICUBE AI project — all 15 projects now have real brand imagery.
 - P1: SEO meta/OG/JSON-LD + sitemap (farm-seo-setup skill).
