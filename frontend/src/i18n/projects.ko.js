@@ -1,5 +1,13 @@
 // Korean project translations keyed by project id (fallback: English in portfolio.js)
 export const PROJECTS_KO = {
+  "gm-naowb": {
+    title: "GM 북미 주문 워크벤치 (NAOWB)",
+    category: "자동차 엔터프라이즈",
+    description: "북미 전역의 딜러십에서 사용하는 GM의 자동차 POS 애플리케이션인 북미 주문 워크벤치를 J2EE, JavaScript, CSS로 개발·현대화하고, IE9 전용에서 모던 브라우저로 전환하는 브라우저 독립 프로젝트를 주도했습니다.",
+    challenge: "GM의 북미 딜러십용 자동차 POS 시스템인 NAOWB는 IE9에서만 실행되어, 딜러십이 모던 브라우저로 전환하면서 점점 큰 부담이 되고 있었습니다. 앱은 백엔드 성능 개선과 Oracle 11g, IBM DB2 연결을 갖춘 SUSE Linux의 테스트 환경으로 안정적이고 자동화된 배포 방법도 필요했습니다.",
+    approach: "J2EE, JavaScript, CSS로 NAOWB를 개발·개선했습니다. 브라우저 독립 프로젝트를 주도하여 JSP와 JavaScript를 현대화해 앱이 Chrome, Firefox, IE11에서 실행되게 하고 J2EE 백엔드 성능을 튜닝했습니다. SUSE Enterprise Linux에서 WebLogic 테스트 환경을 구축·관리하고, Oracle 11g와 IBM DB2 연결 및 DNS/DHCP/LDAP 설정을 관리했으며, cron job으로 Artifactory 저장소에서 빌드를 가져와 테스트 배포를 자동화하는 셸 스크립트를 작성했습니다. Ingres에서 Oracle 데이터베이스 마이그레이션도 지원했습니다.",
+    outcome: "NAOWB가 브라우저 독립적으로 되어 IE9 전용에서 벗어나 모던 Chrome, Firefox, IE11에서 실행되고, 백엔드 성능 개선과 자동화된 스크립트 기반 테스트 배포 파이프라인을 갖추게 되어 북미 전역의 미션 크리티컬한 딜러십 판매 도구를 현대화했습니다.",
+  },
   "nerget-integration": {
     title: "LG U+ Nerget BSS 통합",
     category: "통신 BSS",

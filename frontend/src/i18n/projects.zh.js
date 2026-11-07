@@ -1,5 +1,13 @@
 // Chinese project translations keyed by project id (fallback: English in portfolio.js)
 export const PROJECTS_ZH = {
+  "gm-naowb": {
+    title: "通用汽车北美订单工作台 (NAOWB)",
+    category: "汽车企业级应用",
+    description: "开发并现代化通用汽车的北美订单工作台——北美经销商使用的汽车 POS 应用——使用 J2EE、JavaScript 和 CSS，并主导浏览器无关化项目，将其从仅支持 IE9 带到现代浏览器。",
+    challenge: "NAOWB 是通用汽车面向北美经销商的汽车 POS 系统，只能在 IE9 上运行——随着经销商转向现代浏览器，这成为越来越大的隐患。应用还需要后端性能改进，以及在配备 Oracle 11g 和 IBM DB2 连接的 SUSE Linux 上可靠、自动化地部署到测试环境的方法。",
+    approach: "使用 J2EE、JavaScript 和 CSS 开发并改进 NAOWB。主导浏览器无关化项目：现代化 JSP 和 JavaScript，使应用能在 Chrome、Firefox 和 IE11 上运行，并调优 J2EE 后端性能。在 SUSE Enterprise Linux 上搭建并管理 WebLogic 测试环境，管理 Oracle 11g 和 IBM DB2 连接以及 DNS/DHCP/LDAP 配置，并编写 shell 脚本配合 cron 作业，通过从 Artifactory 仓库拉取构建来自动化测试部署。还支持了从 Ingres 到 Oracle 的数据库迁移。",
+    outcome: "NAOWB 实现了浏览器无关化，从仅支持 IE9 转变为在现代 Chrome、Firefox 和 IE11 上运行，后端性能得到提升，并配备了自动化的脚本驱动测试部署流水线——现代化了遍布北美的关键经销商销售工具。",
+  },
   "nerget-integration": {
     title: "LG U+ Nerget BSS 集成",
     category: "电信 BSS",

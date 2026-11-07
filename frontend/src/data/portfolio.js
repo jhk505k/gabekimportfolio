@@ -10,7 +10,7 @@ export const LINKS = {
 };
 
 export const SUMMARY =
-  "Results-driven Full Stack Java Developer with 8+ years of experience designing, developing, and modernizing enterprise software across telecommunications, healthcare, IoT, AI, blockchain, and cloud environments. Proven ability to modernize legacy systems, build scalable cloud-native applications, automate deployments, and deliver reliable software in Agile environments.";
+  "Results-driven Full Stack Java Developer with 12+ years of experience designing, developing, and modernizing enterprise software across telecommunications, healthcare, IoT, AI, blockchain, and cloud environments. Proven ability to modernize legacy systems, build scalable cloud-native applications, automate deployments, and deliver reliable software in Agile environments.";
 
 export const MARQUEE_ITEMS = [
   "Java 17", "Spring Boot", "Microservices", "AWS", "React", "Distributed Systems",
@@ -108,10 +108,12 @@ export const EXPERIENCE = [
     role: "Software Developer",
     company: "General Motors",
     type: "Full-time",
-    location: "Detroit, MI",
+    location: "Atlanta, GA",
     bullets: [
-      "Developed enterprise software applications for automotive engineering and manufacturing systems at General Motors.",
-      "Collaborated with cross-functional engineering teams to deliver internal tools supporting vehicle development programs.",
+      "Developed and improved the North America Order Workbench (NAOWB) — GM's car POS application for dealerships — using J2EE, JavaScript, and CSS.",
+      "Completed the NAOWB Browser Agnostic project, modernizing the application to run on Chrome, Firefox and IE11 (previously IE9-only) through JSP and JavaScript improvements plus J2EE backend performance tuning.",
+      "Set up, managed and deployed the NAOWB application to WebLogic test environments on SUSE Enterprise Linux; managed Oracle 11g and IBM DB2 connections, DNS / DHCP / LDAP configuration, and wrote shell scripts to automate test deployments by pulling from the Artifactory repository via cron jobs.",
+      "Supported Oracle Database migration from the Ingres database.",
     ],
   },
   {
@@ -121,13 +123,27 @@ export const EXPERIENCE = [
     type: "Internship",
     location: "Seattle, WA",
     bullets: [
-      "Worked on Linux test bed servers and NS3/CORE network emulator integration for aerospace network simulation.",
-      "Built and validated network simulation environments supporting Boeing's systems testing.",
+      "Set up Linux test bed servers for Phantom Works network research.",
+      "Supported the Common Open Research Emulator (CORE) application development project in conjunction with the NRL Networks and Communication Systems Branch.",
+      "Supported initial integration of NS3 and CORE using C++, and created scripts to automate testing.",
+      "Replaced CORE nodes with NS3 nodes and investigated the viability of integrating NS3 with CORE by measuring throughput, packet loss, latency, CPU and memory usage.",
     ],
   },
 ];
 
 export const PROJECTS = [
+  {
+    id: "gm-naowb",
+    title: "GM NAOWB — North America Order Workbench",
+    company: "General Motors",
+    category: "Automotive Enterprise",
+    image: "https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=800",
+    description: "Developed and modernized GM's North America Order Workbench (NAOWB) — the car POS application used by dealerships across North America — leading the Browser Agnostic project that brought it from IE9-only to modern browsers, plus backend performance and deployment automation on WebLogic/SUSE Linux.",
+    tech: ["J2EE", "JavaScript", "CSS", "JSP", "WebLogic", "SUSE Linux", "Oracle 11g", "IBM DB2"],
+    challenge: "NAOWB — the point-of-sale system GM dealerships rely on to order vehicles — only ran on Internet Explorer 9, locking the business to an aging browser and creating performance and compatibility risk as dealerships modernized.",
+    approach: "Led the Browser Agnostic project: refactored JSP views and JavaScript to run cleanly on Chrome, Firefox and IE11, and tuned the J2EE backend for performance. Set up and managed WebLogic test environments on SUSE Enterprise Linux with Oracle 11g and IBM DB2 connections, configured DNS / DHCP / LDAP, and wrote shell scripts to automate test deployments by pulling builds from the Artifactory repository via cron jobs. Also supported the Oracle database migration from Ingres.",
+    outcome: "NAOWB shipped browser-agnostic — running on modern Chrome, Firefox and IE11 — with a faster J2EE backend and fully automated test-environment deployments, reducing dealership compatibility issues and manual release effort.",
+  },
   {
     id: "nerget-integration",
     title: "LG U+ Nerget BSS Integration",

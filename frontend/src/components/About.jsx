@@ -6,8 +6,8 @@ import { useLanguage } from "../i18n/LanguageContext";
 export const About = () => {
   const { t } = useLanguage();
   const STATS = [
-    { value: "8+", label: t("stat_years") },
-    { value: "15", label: t("stat_projects") },
+    { value: "12+", label: t("stat_years") },
+    { value: "16", label: t("stat_projects") },
     { value: "8", label: t("stat_companies") },
     { value: "6", label: t("stat_industries") },
   ];
