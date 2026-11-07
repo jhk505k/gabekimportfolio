@@ -112,6 +112,7 @@
 - P1: User to revise Nerget + StarHub case study text (as requested).
 - P1: Take down Emergent publish (user managing Cloudflare deploy now).
 - DONE: Cloudflare token revoked by user, replaced with GitHub secret variable, auto-deploy workflow confirmed working. User manages CLOUDFLARE_API_TOKEN themselves.
+- Implemented (2026-11-07): Added early career from LinkedIn (linkedin.com/in/ji-kim-5179495): General Motors Software Developer (2013–2014, Detroit) + Boeing Software Engineering Intern (2012, Seattle). Now 8 roles. Companies stat 6→8. EN/KO/ZH translations added. Resume PDF regenerated.
 - P1: gslab.engineer cross-link — already has "Founder portfolio ↗" (nav) + "Full Portfolio & Resume" (founder section) linking to gabekimportfolio.pages.dev. gslab.engineer is a SEPARATE Emergent app (different codebase) — cannot edit from this workspace. Polish must be done in that app's workspace.
 - P1: User deploying frontend to Cloudflare Pages at gabekimportfolio.dev — CORRECT settings: Root directory=`frontend`, Build command=`yarn build`, Build output directory=`build`, Deploy command=`npx wrangler pages deploy ./build --project-name=gabekimportfolio` + CLOUDFLARE_API_TOKEN env var with Pages Edit permission. (Earlier advice of blank root + frontend/build output was wrong and corrected.)
 - MICUBE logo (user-uploaded) applied to MICUBE AI project — all 15 projects now have real brand imagery.

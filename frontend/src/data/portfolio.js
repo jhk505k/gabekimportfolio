@@ -103,6 +103,28 @@ export const EXPERIENCE = [
       "Managed Hadoop, Kafka, Ambari, and Linux server infrastructure.",
     ],
   },
+  {
+    period: "2013 — 2014",
+    role: "Software Developer",
+    company: "General Motors",
+    type: "Full-time",
+    location: "Detroit, MI",
+    bullets: [
+      "Developed enterprise software applications for automotive engineering and manufacturing systems at General Motors.",
+      "Collaborated with cross-functional engineering teams to deliver internal tools supporting vehicle development programs.",
+    ],
+  },
+  {
+    period: "2012",
+    role: "Software Engineering Intern",
+    company: "Boeing",
+    type: "Internship",
+    location: "Seattle, WA",
+    bullets: [
+      "Worked on Linux test bed servers and NS3/CORE network emulator integration for aerospace network simulation.",
+      "Built and validated network simulation environments supporting Boeing's systems testing.",
+    ],
+  },
 ];
 
 export const PROJECTS = [

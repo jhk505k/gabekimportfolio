@@ -8,7 +8,7 @@ export const About = () => {
   const STATS = [
     { value: "8+", label: t("stat_years") },
     { value: "15", label: t("stat_projects") },
-    { value: "6", label: t("stat_companies") },
+    { value: "8", label: t("stat_companies") },
     { value: "6", label: t("stat_industries") },
   ];
 
