@@ -104,6 +104,17 @@ export const EXPERIENCE = [
     ],
   },
   {
+    period: "2015 — 2017",
+    role: "Career Break — Family Care & Reskilling",
+    company: "Independent Study",
+    type: "Career Break",
+    location: "Georgia, USA",
+    bullets: [
+      "Took a career break to care for a family member diagnosed with cancer.",
+      "During this period, studied software development and network engineering, earning the Cisco CCNP certification to pursue network engineering before returning to software engineering.",
+    ],
+  },
+  {
     period: "2013 — 2014",
     role: "Software Developer",
     company: "General Motors",
@@ -114,17 +125,6 @@ export const EXPERIENCE = [
       "Completed the NAOWB Browser Agnostic project, modernizing the application to run on Chrome, Firefox and IE11 (previously IE9-only) through JSP and JavaScript improvements plus J2EE backend performance tuning.",
       "Set up, managed and deployed the NAOWB application to WebLogic test environments on SUSE Enterprise Linux; managed Oracle 11g and IBM DB2 connections, DNS / DHCP / LDAP configuration, and wrote shell scripts to automate test deployments by pulling from the Artifactory repository via cron jobs.",
       "Supported Oracle Database migration from the Ingres database.",
-    ],
-  },
-  {
-    period: "2015 — 2017",
-    role: "Career Break — Family Care & Reskilling",
-    company: "Independent Study",
-    type: "Career Break",
-    location: "Georgia, USA",
-    bullets: [
-      "Took a career break to care for a family member diagnosed with cancer.",
-      "During this period, studied software development and network engineering, earning the Cisco CCNP certification to pursue network engineering before returning to software engineering.",
     ],
   },
   {
