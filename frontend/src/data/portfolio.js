@@ -10,7 +10,7 @@ export const LINKS = {
 };
 
 export const SUMMARY =
-  "Results-driven Full Stack Java Developer with 12+ years of experience designing, developing, and modernizing enterprise software across telecommunications, healthcare, IoT, AI, blockchain, and cloud environments. Proven ability to modernize legacy systems, build scalable cloud-native applications, automate deployments, and deliver reliable software in Agile environments.";
+  "Results-driven Full Stack Java Developer with 9+ years of experience designing, developing, and modernizing enterprise software across telecommunications, healthcare, IoT, AI, blockchain, and cloud environments. Proven ability to modernize legacy systems, build scalable cloud-native applications, automate deployments, and deliver reliable software in Agile environments.";
 
 export const MARQUEE_ITEMS = [
   "Java 17", "Spring Boot", "Microservices", "AWS", "React", "Distributed Systems",
@@ -117,6 +117,17 @@ export const EXPERIENCE = [
     ],
   },
   {
+    period: "2015 — 2017",
+    role: "Career Break — Family Care & Reskilling",
+    company: "Independent Study",
+    type: "Career Break",
+    location: "Georgia, USA",
+    bullets: [
+      "Took a career break to care for a family member diagnosed with cancer.",
+      "During this period, studied software development and network engineering, earning the Cisco CCNP certification to pursue network engineering before returning to software engineering.",
+    ],
+  },
+  {
     period: "2012",
     role: "Software Engineering Intern",
     company: "Boeing",
@@ -132,18 +143,7 @@ export const EXPERIENCE = [
 ];
 
 export const PROJECTS = [
-  {
-    id: "gm-naowb",
-    title: "GM NAOWB — North America Order Workbench",
-    company: "General Motors",
-    category: "Automotive Enterprise",
-    image: "https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=800",
-    description: "Developed and modernized GM's North America Order Workbench (NAOWB) — the car POS application used by dealerships across North America — leading the Browser Agnostic project that brought it from IE9-only to modern browsers, plus backend performance and deployment automation on WebLogic/SUSE Linux.",
-    tech: ["J2EE", "JavaScript", "CSS", "JSP", "WebLogic", "SUSE Linux", "Oracle 11g", "IBM DB2"],
-    challenge: "NAOWB — the point-of-sale system GM dealerships rely on to order vehicles — only ran on Internet Explorer 9, locking the business to an aging browser and creating performance and compatibility risk as dealerships modernized.",
-    approach: "Led the Browser Agnostic project: refactored JSP views and JavaScript to run cleanly on Chrome, Firefox and IE11, and tuned the J2EE backend for performance. Set up and managed WebLogic test environments on SUSE Enterprise Linux with Oracle 11g and IBM DB2 connections, configured DNS / DHCP / LDAP, and wrote shell scripts to automate test deployments by pulling builds from the Artifactory repository via cron jobs. Also supported the Oracle database migration from Ingres.",
-    outcome: "NAOWB shipped browser-agnostic — running on modern Chrome, Firefox and IE11 — with a faster J2EE backend and fully automated test-environment deployments, reducing dealership compatibility issues and manual release effort.",
-  },
+
   {
     id: "nerget-integration",
     title: "LG U+ Nerget BSS Integration",
@@ -345,6 +345,18 @@ export const PROJECTS = [
     challenge: "The Chungju Food Waste Bioenergy Center — built by Hyundai Engineering & Construction to turn 80 tons of daily food waste into bio-methane gas for vehicle fuel and city gas — needed automated detection of rocks and debris in processing zones, where manual inspection was slow and inconsistent.",
     approach: "Developed a computer-vision application with Java Spring, Angular and Python, training a TensorFlow Mask R-CNN model for pixel-level segmentation of rocks in camera feeds.",
     outcome: "The system automated rock detection at the biocenter, improving safety and inspection consistency through applied deep learning.",
+  },
+  {
+    id: "gm-naowb",
+    title: "GM NAOWB — North America Order Workbench",
+    company: "General Motors",
+    category: "Automotive Enterprise",
+    image: "/projects/gm-logo.webp",
+    description: "Developed and modernized GM's North America Order Workbench (NAOWB) — the car POS application used by dealerships across North America — leading the Browser Agnostic project that brought it from IE9-only to modern browsers, plus backend performance and deployment automation on WebLogic/SUSE Linux.",
+    tech: ["J2EE", "JavaScript", "CSS", "JSP", "WebLogic", "SUSE Linux", "Oracle 11g", "IBM DB2"],
+    challenge: "NAOWB — the point-of-sale system GM dealerships rely on to order vehicles — only ran on Internet Explorer 9, locking the business to an aging browser and creating performance and compatibility risk as dealerships modernized.",
+    approach: "Led the Browser Agnostic project: refactored JSP views and JavaScript to run cleanly on Chrome, Firefox and IE11, and tuned the J2EE backend for performance. Set up and managed WebLogic test environments on SUSE Enterprise Linux with Oracle 11g and IBM DB2 connections, configured DNS / DHCP / LDAP, and wrote shell scripts to automate test deployments by pulling builds from the Artifactory repository via cron jobs. Also supported the Oracle database migration from Ingres.",
+    outcome: "NAOWB shipped browser-agnostic — running on modern Chrome, Firefox and IE11 — with a faster J2EE backend and fully automated test-environment deployments, reducing dealership compatibility issues and manual release effort.",
   },
 ];
 
