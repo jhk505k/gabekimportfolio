@@ -110,6 +110,8 @@
 
 - Implemented (2026-11-10): Degree Verification feature — "Degree Verification" button on both Georgia Tech degree cards opens the official GT registrar degree verification document (MS 2013 + BS 2009) in the proof modal as an image (PDF converted to PNG for reliable display; PDF iframe rendered blank in some browsers). Uploaded GatechDegreeVerification.pdf → /certs/gatech-degree-verification.png.
 
+- Fixed (2026-11-10): Degree verification not showing on Cloudflare — root cause was the 33MB gatech-degree-verification.pdf exceeding Cloudflare Pages' 25MB per-file limit, which broke the whole /certs/ deploy (PNG+PDF returned SPA HTML fallback). Compressed PDF 33MB→335KB. Verified by testing agent: no build file over 25MB, assets present. User must commit + push to redeploy.
+
 ## Backlog
 - P1: User to revise Nerget + StarHub case study text (as requested).
 - P1: Take down Emergent publish (user managing Cloudflare deploy now).
