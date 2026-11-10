@@ -108,6 +108,8 @@
 ## Implemented (2026-11-05, iteration 22)
 - GSLAB LLC promotion section added after About: Founder badge, "web systems that turn traffic into revenue" headline, description from gslab.engineer, GSLAB emblem (user's logo, webp), stats (99.99% uptime, <2s load, 5+ hrs saved), CTAs linking to gslab.engineer + #pricing. Fully translated EN/KO/ZH. Links to gslab.engineer.
 
+- Implemented (2026-11-10): Degree Verification feature — "Degree Verification" button on both Georgia Tech degree cards opens the official GT registrar degree verification document (MS 2013 + BS 2009) in the proof modal as an image (PDF converted to PNG for reliable display; PDF iframe rendered blank in some browsers). Uploaded GatechDegreeVerification.pdf → /certs/gatech-degree-verification.png.
+
 ## Backlog
 - P1: User to revise Nerget + StarHub case study text (as requested).
 - P1: Take down Emergent publish (user managing Cloudflare deploy now).

@@ -7,6 +7,7 @@ import { useLanguage } from "../i18n/LanguageContext";
 
 const ProofModal = ({ cert, onClose }) => {
   const { t } = useLanguage();
+  const isPdf = cert.proof?.type === "pdf";
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -53,12 +54,21 @@ const ProofModal = ({ cert, onClose }) => {
           </div>
         </div>
         <div className="flex-1 overflow-auto bg-[#090A0F]">
-          <img
-            src={cert.proof.url}
-            alt={`${cert.name} verification`}
-            data-testid="cert-proof-image"
-            className="w-full h-auto"
-          />
+          {isPdf ? (
+            <iframe
+              src={cert.proof.url}
+              title={cert.name}
+              data-testid="cert-proof-pdf"
+              className="w-full h-[72vh] bg-white"
+            />
+          ) : (
+            <img
+              src={cert.proof.url}
+              alt={`${cert.name} verification`}
+              data-testid="cert-proof-image"
+              className="w-full h-auto"
+            />
+          )}
         </div>
       </motion.div>
     </motion.div>
@@ -94,12 +104,21 @@ export const Education = () => {
                 <span className="p-3 h-fit rounded-lg bg-[#00F0FF]/10 text-[#00F0FF]">
                   <GraduationCap size={24} />
                 </span>
-                <div>
+                <div className="flex-1 min-w-0">
                   <h3 className="font-display font-bold text-lg text-slate-100 leading-snug">{ed.degree}</h3>
                   <p className="mt-2 font-mono text-xs text-[#FF5E1A] uppercase tracking-widest">
                     {ed.school} · {ed.location}
                   </p>
                   {ed.detail && <p className="mt-2 text-sm text-slate-400">{ed.detail}</p>}
+                  {ed.proof && (
+                    <button
+                      onClick={() => setActive({ ...ed, name: ed.degree, issuer: ed.school })}
+                      data-testid={`degree-verification-${i}`}
+                      className="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest px-4 py-2 rounded-full border border-[#00F0FF]/40 text-[#00F0FF] hover:bg-[#00F0FF] hover:text-[#090A0F] transition-colors"
+                    >
+                      <ExternalLink size={12} /> {ed.proof.label}
+                    </button>
+                  )}
                 </div>
               </div>
             </Reveal>

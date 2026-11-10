@@ -366,12 +366,14 @@ export const EDUCATION = [
     school: "Georgia Institute of Technology",
     location: "Atlanta, GA",
     detail: "Focus: Telecommunication and Computer Systems / Software",
+    proof: { type: "image", url: "/certs/gatech-degree-verification.png", label: "Degree Verification" },
   },
   {
     degree: "Bachelor of Science — Electrical Engineering",
     school: "Georgia Institute of Technology",
     location: "Atlanta, GA",
     detail: "",
+    proof: { type: "image", url: "/certs/gatech-degree-verification.png", label: "Degree Verification" },
   },
 ];
 
