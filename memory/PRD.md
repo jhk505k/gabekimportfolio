@@ -114,6 +114,8 @@
 
 - Implemented (2026-11-13, approved plan): (1) Boeing renamed to "IT Intern - Phantom Work Research Assistant" (EN/KO/ZH). (2) New top experience entry "Founder — GSLAB" (2025—Present, GSLAB LLC, Columbus+Atlanta+remote, 4 user bullets, EN/KO/ZH). Now 10 experience entries. (3) Language-aware resume downloads: Resume button (nav+hero+mobile) now a PDF/Word dropdown serving Gabe_Kim_Resume_{EN,KO,ZH}.{pdf,docx} per visitor's language. EN PDF = user's uploaded file; EN/KO/ZH DOCX + KO/ZH PDF generated via scripts/make_resumes.py (WQY font for CJK). Old auto-generated Gabe_Kim_Resume.pdf + make_resume_pdf.py + uploaded Gabe_Kim_Resume.docx removed.
 
+- Implemented (2026-11-13): Geolocation-based default language. On first visit (no saved preference), detects visitor country via IP (ipapi.co, fallback ip-api.com) and sets default: KR→Korean, CN/SG→Chinese, US+all others→English. Manual language selection always wins and persists in localStorage (detection only runs when no saved preference). Verified: fresh visit defaults to English (US test IP), manual KO persists after reload.
+
 ## Backlog
 - P1: User to revise Nerget + StarHub case study text (as requested).
 - P1: Take down Emergent publish (user managing Cloudflare deploy now).
