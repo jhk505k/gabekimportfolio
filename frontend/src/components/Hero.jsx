@@ -1,8 +1,9 @@
 import { useRef } from "react";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
-import { ArrowDown, Download, MapPin } from "lucide-react";
+import { ArrowDown, MapPin } from "lucide-react";
 import { HERO_IMAGE, LINKS } from "../data/portfolio";
 import { useLanguage } from "../i18n/LanguageContext";
+import { ResumeMenu } from "./ResumeMenu";
 
 const MaskedLine = ({ children, delay }) => (
   <span className="block overflow-hidden">
@@ -115,14 +116,7 @@ export const Hero = () => {
               {t("hero_cta_projects")}
               <ArrowDown size={16} className="group-hover:translate-y-0.5 transition-transform" />
             </a>
-            <a
-              href={LINKS.resume}
-              download
-              data-testid="hero-resume-button"
-              className="flex items-center gap-2 border border-white/20 text-slate-200 font-display font-semibold text-sm px-7 py-3.5 rounded-full hover:border-[#FF5E1A] hover:text-[#FF5E1A] transition-colors"
-            >
-              <Download size={16} /> {t("hero_cta_resume")}
-            </a>
+            <ResumeMenu variant="hero" />
             <span className="flex items-center gap-2 font-mono text-xs text-slate-500" data-testid="hero-location">
               <MapPin size={14} className="text-[#FF5E1A]" /> {LINKS.location}
             </span>

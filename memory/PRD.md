@@ -112,6 +112,8 @@
 
 - Fixed (2026-11-10): Degree verification not showing on Cloudflare — root cause was the 33MB gatech-degree-verification.pdf exceeding Cloudflare Pages' 25MB per-file limit, which broke the whole /certs/ deploy (PNG+PDF returned SPA HTML fallback). Compressed PDF 33MB→335KB. Verified by testing agent: no build file over 25MB, assets present. User must commit + push to redeploy.
 
+- Implemented (2026-11-13, approved plan): (1) Boeing renamed to "IT Intern - Phantom Work Research Assistant" (EN/KO/ZH). (2) New top experience entry "Founder — GSLAB" (2025—Present, GSLAB LLC, Columbus+Atlanta+remote, 4 user bullets, EN/KO/ZH). Now 10 experience entries. (3) Language-aware resume downloads: Resume button (nav+hero+mobile) now a PDF/Word dropdown serving Gabe_Kim_Resume_{EN,KO,ZH}.{pdf,docx} per visitor's language. EN PDF = user's uploaded file; EN/KO/ZH DOCX + KO/ZH PDF generated via scripts/make_resumes.py (WQY font for CJK). Old auto-generated Gabe_Kim_Resume.pdf + make_resume_pdf.py + uploaded Gabe_Kim_Resume.docx removed.
+
 ## Backlog
 - P1: User to revise Nerget + StarHub case study text (as requested).
 - P1: Take down Emergent publish (user managing Cloudflare deploy now).

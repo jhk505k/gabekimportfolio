@@ -1,6 +1,16 @@
 // Chinese translations for the 6 experience roles (index-aligned with EXPERIENCE in portfolio.js)
 export const EXPERIENCE_ZH = [
   {
+    role: "创始人 — GSLAB",
+    type: "创始人",
+    bullets: [
+      "创立 GSLAB LLC，为小企业主和成长中的企业设计、架构和部署定制 Web 应用、云基础设施和自动化系统。",
+      "工程化全栈 Web 应用和内部业务工具，将定制后端逻辑（Java Spring Boot、Python、PostgreSQL、REST API）与现代前端框架和 AI 辅助平台相结合。",
+      "利用 AWS（EC2、RDS）、Cloudflare Pages/Edge、Docker 和自动化 CI/CD 工作流，构建高可用云和边缘部署流水线。",
+      "与企业主直接合作，用可扩展的定制软件解决方案取代人工运营工作流。",
+    ],
+  },
+  {
     role: "Java 软件开发工程师",
     type: "合同制",
     bullets: [
@@ -75,7 +85,7 @@ export const EXPERIENCE_ZH = [
     ],
   },
   {
-    role: "软件工程实习生",
+    role: "IT 实习生 - Phantom Work 研究助理",
     type: "实习",
     bullets: [
       "为 Phantom Works 网络研究搭建 Linux 测试平台服务器。",

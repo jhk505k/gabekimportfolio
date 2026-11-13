@@ -1,6 +1,16 @@
 // Korean translations for the 6 experience roles (index-aligned with EXPERIENCE in portfolio.js)
 export const EXPERIENCE_KO = [
   {
+    role: "창업자 — GSLAB",
+    type: "창업자",
+    bullets: [
+      "소기업 사업주와 성장하는 기업을 위해 맞춤형 웹 애플리케이션, 클라우드 인프라, 자동화 시스템을 설계·구축·배포하는 GSLAB LLC를 창업했습니다.",
+      "커스텀 백엔드 로직(Java Spring Boot, Python, PostgreSQL, REST API)과 모던 프론트엔드 프레임워크, AI 지원 플랫폼을 결합한 풀스택 웹 애플리케이션과 내부 비즈니스 도구를 엔지니어링합니다.",
+      "AWS(EC2, RDS), Cloudflare Pages/Edge, Docker, 자동화된 CI/CD 워크플로우를 활용한 고가용성 클라우드 및 엣지 배포 파이프라인을 설계합니다.",
+      "사업주와 직접 협력하여 수동 운영 워크플로우를 확장 가능한 맞춤형 소프트웨어 솔루션으로 전환합니다.",
+    ],
+  },
+  {
     role: "자바 소프트웨어 개발자",
     type: "계약직",
     bullets: [
@@ -75,7 +85,7 @@ export const EXPERIENCE_KO = [
     ],
   },
   {
-    role: "소프트웨어 엔지니어링 인턴",
+    role: "IT 인턴 - Phantom Work 리서치 어시스턴트",
     type: "인턴십",
     bullets: [
       "Phantom Works 네트워크 연구를 위한 Linux 테스트베드 서버를 구축했습니다.",

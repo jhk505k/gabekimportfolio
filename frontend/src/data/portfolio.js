@@ -6,7 +6,6 @@ export const LINKS = {
   email: "jhk505ko@gmail.com",
   phone: "(706) 304-1620",
   location: "Columbus, GA & Atlanta, GA",
-  resume: "/Gabe_Kim_Resume.pdf",
 };
 
 export const SUMMARY =
@@ -27,6 +26,19 @@ export const SKILLS = [
 ];
 
 export const EXPERIENCE = [
+  {
+    period: "2025 — Present",
+    role: "Founder — GSLAB",
+    company: "GSLAB LLC",
+    type: "Founder",
+    location: "Columbus, GA & Atlanta, GA and remote",
+    bullets: [
+      "Founded GSLAB LLC to design, architect, and deploy custom web applications, cloud infrastructure, and automation systems tailored for small business owners and growing enterprises.",
+      "Engineer full-stack web applications and internal business tools combining custom backend logic (Java Spring Boot, Python, PostgreSQL, REST APIs) with modern frontend frameworks and AI-assisted platforms.",
+      "Architect high-availability cloud and edge deployment pipelines utilizing AWS (EC2, RDS), Cloudflare Pages/Edge, Docker, and automated CI/CD workflows.",
+      "Partner directly with business owners to replace manual operational workflows with scalable, custom-built software solutions.",
+    ],
+  },
   {
     period: "2023 — 2024",
     role: "Java Software Developer",
@@ -129,7 +141,7 @@ export const EXPERIENCE = [
   },
   {
     period: "2012",
-    role: "Software Engineering Intern",
+    role: "IT Intern - Phantom Work Research Assistant",
     company: "Boeing",
     type: "Internship",
     location: "Seattle, WA",

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Download, Globe } from "lucide-react";
-import { LINKS } from "../data/portfolio";
+import { Menu, X, Globe } from "lucide-react";
 import { useLanguage, LANGUAGES } from "../i18n/LanguageContext";
+import { ResumeMenu } from "./ResumeMenu";
 
 export const LogoMark = ({ size = 36 }) => (
   <svg width={size} height={size} viewBox="0 0 64 64" data-testid="logo-mark">
@@ -78,14 +78,7 @@ export const Nav = () => {
               </button>
             ))}
           </div>
-          <a
-            href={LINKS.resume}
-            download
-            data-testid="nav-resume-button"
-            className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest bg-[#FF5E1A] text-[#090A0F] font-semibold px-4 py-2 rounded-full hover:bg-[#00F0FF] transition-colors"
-          >
-            <Download size={14} /> {t("nav_resume")}
-          </a>
+          <ResumeMenu variant="nav" />
         </div>
 
         <button
@@ -137,14 +130,9 @@ export const Nav = () => {
                   </button>
                 ))}
               </div>
-              <a
-                href={LINKS.resume}
-                download
-                data-testid="nav-mobile-resume-button"
-                className="flex items-center gap-2 font-mono text-sm uppercase tracking-widest text-[#FF5E1A]"
-              >
-                <Download size={16} /> {t("nav_resume")}
-              </a>
+              <div data-testid="nav-mobile-resume-button">
+                <ResumeMenu variant="hero" />
+              </div>
             </div>
           </motion.div>
         )}
